@@ -1,0 +1,14 @@
+# cache
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+
+# installation artifacts
+.yamk/
+poetry.lock
+
+# Distribution / packaging
+docs/build/
+pip-wheel-metadata/
+dist/
+*.egg-info/
