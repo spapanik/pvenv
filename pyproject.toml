@@ -66,6 +66,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[tool.poetry.scripts]
+pvenv = "pvenv.main:main"
+
 [tool.poetry.dependencies]
 # python version
 python = "^3.7.0"

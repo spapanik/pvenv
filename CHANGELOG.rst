@@ -9,6 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Added
+^^^^^
+* lsvenv/venv list to list all the available venvs
+
 .. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.1.0...main
 
 .. _`Keep a Changelog`: https://keepachangelog.com/en/1.0.0/
