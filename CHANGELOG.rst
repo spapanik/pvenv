@@ -9,6 +9,8 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+`0.1.1`_ - 2022-22-14
+---------------------
 Added
 ^^^^^
 * invenv/venv in to source env vars to a venv
@@ -20,7 +22,8 @@ Added
 ^^^^^
 * lsvenv/venv list to list all the available venvs
 
-.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.1.0...main
+.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.1.1...main
+.. _`0.1.1`: https://github.com/spapanik/pvenv/compare/v0.1.0...v0.1.1
 .. _`0.1.0`: https://github.com/spapanik/yamk/releases/tag/v0.1.0
 
 .. _`Keep a Changelog`: https://keepachangelog.com/en/1.0.0/
