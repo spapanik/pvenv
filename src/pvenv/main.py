@@ -21,6 +21,13 @@ def parse_args():
     )
     subparsers = parser.add_subparsers(dest="command")
 
+    invenv_parser = subparsers.add_parser(
+        "in", help="Export new variables for the venv"
+    )
+    invenv_parser.add_argument("env_vars", nargs="*")
+    invenv_parser.add_argument("-f", "--files", action="append", default=[])
+    subparsers.add_parser("out", help="List venvs")
+
     subparsers.add_parser("list", help="List venvs")
     return parser.parse_args()
 
@@ -30,7 +37,11 @@ def main() -> None:
         os.getenv("PVENV_BASE", f"{os.path.expanduser('~')}/.local/share/virtualenvs")
     ).absolute()
     args = parse_args()
-    if args.command == "list":
+    if args.command == "in":
+        module = subcommands.invenv
+    elif args.command == "out":
+        module = subcommands.outvenv
+    elif args.command == "list":
         module = subcommands.lsvenv
     else:
         print("Add the following line to your shell rc:")

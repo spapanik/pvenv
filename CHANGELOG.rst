@@ -9,6 +9,11 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Added
+^^^^^
+* invenv/venv in to source env vars to a venv
+* outvenv/venv out to leave a venv with assigning the env vars to their original values
+
 `0.1.0`_ - 2022-22-13
 ---------------------
 Added

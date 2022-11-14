@@ -48,10 +48,14 @@ Run ``pvenv`` to get the path to be sourced in the shell rc:
 
 After that, you can use the following commands:
 
+* invenv
+* outvenv
 * lsvenv
 
 or as subcommands of venv:
 
+* venv in
+* venv out
 * venv list
 
 Links
