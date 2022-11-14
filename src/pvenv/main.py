@@ -2,6 +2,7 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from types import ModuleType
 
 from pvenv import __version__, subcommands
 
@@ -37,6 +38,7 @@ def main() -> None:
         os.getenv("PVENV_BASE", f"{os.path.expanduser('~')}/.local/share/virtualenvs")
     ).absolute()
     args = parse_args()
+    module: ModuleType
     if args.command == "in":
         module = subcommands.invenv
     elif args.command == "out":
