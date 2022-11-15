@@ -11,7 +11,9 @@ sys.tracebacklimit = 0
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        prog="pvenv", description="A utility to manage virtual environments"
+        prog="venv",
+        description="A utility to manage virtual environments",
+        epilog="You can find the full documentation at: https://p-venv.readthedocs.io/en/stable/",
     )
     parser.add_argument(
         "-V",

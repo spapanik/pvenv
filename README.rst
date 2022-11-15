@@ -66,4 +66,4 @@ Links
 
 
 .. _Changelog: https://github.com/spapanik/pvenv/blob/main/CHANGELOG.rst
-.. _Documentation: https://pvenv.readthedocs.io/en/latest/
+.. _Documentation: https://p-venv.readthedocs.io/en/stable/
