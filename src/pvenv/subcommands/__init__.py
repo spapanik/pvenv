@@ -1,3 +1,3 @@
-from pvenv.subcommands import invenv, lsvenv, outvenv
+from pvenv.subcommands import invenv, lsvenv, outvenv, rmvenv
 
-__all__ = ["invenv", "lsvenv", "outvenv"]
+__all__ = ["invenv", "lsvenv", "outvenv", "rmvenv"]

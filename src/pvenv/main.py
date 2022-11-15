@@ -32,6 +32,8 @@ def parse_args():
     subparsers.add_parser("out", help="List venvs")
 
     subparsers.add_parser("list", help="List venvs")
+    rmvenv_parser = subparsers.add_parser("rm", help="Remove virtualenvs")
+    rmvenv_parser.add_argument("venvs_to_remove", nargs="*")
     return parser.parse_args()
 
 
@@ -47,6 +49,8 @@ def main() -> None:
         module = subcommands.outvenv
     elif args.command == "list":
         module = subcommands.lsvenv
+    elif args.command == "rm":
+        module = subcommands.rmvenv
     else:
         print("Add the following line to your shell rc:")
         print(f". {Path(__file__).parent.joinpath('scripts/pvenv.sh').absolute()}")

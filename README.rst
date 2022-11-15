@@ -51,12 +51,14 @@ After that, you can use the following commands:
 * invenv
 * outvenv
 * lsvenv
+* rmvenv
 
 or as subcommands of venv:
 
 * venv in
 * venv out
 * venv list
+* venv rm
 
 Links
 -----

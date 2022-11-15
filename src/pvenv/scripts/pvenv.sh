@@ -9,6 +9,9 @@ function venv {
     list)
         lsvenv "${@:2}"
         ;;
+    rm)
+        rmvenv "${@:2}"
+        ;;
     *)
         pvenv "$@"
         return
@@ -32,4 +35,8 @@ function outvenv {
 
 function lsvenv {
     pvenv list "$@"
+}
+
+function rmvenv {
+    pvenv rm "$@"
 }
