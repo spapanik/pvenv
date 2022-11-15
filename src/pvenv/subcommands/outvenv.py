@@ -1,11 +1,12 @@
 import os
 from argparse import Namespace
-from pathlib import Path
+
+from pvenv.subcommands.base import BaseCommand
 
 
-class Command:
-    def __init__(self, _base_dir: Path, _options: Namespace):
-        self._prefix = "_pvenv_env"
+class Command(BaseCommand):
+    def __init__(self, options: Namespace):
+        super().__init__(options)
 
     def run(self):
         if self._prefix not in os.environ:

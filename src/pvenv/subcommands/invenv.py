@@ -1,16 +1,18 @@
 import os
 from argparse import Namespace
-from pathlib import Path
+from typing import List
+
+from pvenv.subcommands.base import BaseCommand
 
 
-class Command:
-    def __init__(self, _base_dir: Path, options: Namespace):
-        self._prefix = "_pvenv_env"
-        self.env_vars = options.env_vars
+class Command(BaseCommand):
+    def __init__(self, options: Namespace):
+        super().__init__(options)
+        self.env_vars: List[str] = options.env_vars
         self.files = options.files
 
     @staticmethod
-    def parse_env_var(line):
+    def parse_env_var(line: str) -> List[str]:
         return line.split("=", maxsplit=1)
 
     def run(self):

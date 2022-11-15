@@ -9,6 +9,11 @@ from pvenv import __version__, subcommands
 sys.tracebacklimit = 0
 
 
+def get_default_base() -> Path:
+    default = f"{os.path.expanduser('~')}/.local/share/virtualenvs"
+    return Path(os.getenv("PVENV_BASE", default))
+
+
 def parse_args():
     parser = argparse.ArgumentParser(
         prog="venv",
@@ -22,6 +27,7 @@ def parse_args():
         version=f"%(prog)s {__version__}",
         help="Print the version and exit",
     )
+    parser.add_argument("base_dir", action="store_const", const=get_default_base())
     subparsers = parser.add_subparsers(dest="command")
 
     invenv_parser = subparsers.add_parser(
@@ -38,9 +44,6 @@ def parse_args():
 
 
 def main() -> None:
-    base_dir = Path(
-        os.getenv("PVENV_BASE", f"{os.path.expanduser('~')}/.local/share/virtualenvs")
-    ).absolute()
     args = parse_args()
     module: ModuleType
     if args.command == "in":
@@ -55,4 +58,4 @@ def main() -> None:
         print("Add the following line to your shell rc:")
         print(f". {Path(__file__).parent.joinpath('scripts/pvenv.sh').absolute()}")
         return
-    module.Command(base_dir, args).run()
+    module.Command(args).run()
