@@ -38,6 +38,12 @@ def parse_args():
     subparsers.add_parser("out", help="List venvs")
 
     subparsers.add_parser("list", help="List venvs")
+    mkvenv_parser = subparsers.add_parser("make", help="Make a new venv")
+    mkvenv_parser.add_argument("venv", nargs="?", default=Path().absolute().name)
+    mkvenv_parser.add_argument("-e", "--environments", action="append", default=[])
+    mkvenv_parser.add_argument("-P", "--project", default=Path().absolute().as_posix())
+    mkvenv_parser.add_argument("-p", "--python", default="current")
+
     rmvenv_parser = subparsers.add_parser("rm", help="Remove virtualenvs")
     rmvenv_parser.add_argument("venvs_to_remove", nargs="*")
     return parser.parse_args()
@@ -52,6 +58,8 @@ def main() -> None:
         module = subcommands.outvenv
     elif args.command == "list":
         module = subcommands.lsvenv
+    elif args.command == "make":
+        module = subcommands.mkvenv
     elif args.command == "rm":
         module = subcommands.rmvenv
     else:

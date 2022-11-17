@@ -9,6 +9,9 @@ function venv {
     list)
         lsvenv "${@:2}"
         ;;
+    make)
+        mkvenv "${@:2}"
+        ;;
     rm)
         rmvenv "${@:2}"
         ;;
@@ -35,6 +38,13 @@ function outvenv {
 
 function lsvenv {
     pvenv list "$@"
+}
+
+function mkvenv {
+    local IFS=$'\n'
+    for command in $(pvenv make "$@"); do
+        eval "${command}"
+    done
 }
 
 function rmvenv {

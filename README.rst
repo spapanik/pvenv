@@ -51,6 +51,7 @@ After that, you can use the following commands:
 * invenv
 * outvenv
 * lsvenv
+* mkvenv
 * rmvenv
 
 or as subcommands of venv:
@@ -58,6 +59,7 @@ or as subcommands of venv:
 * venv in
 * venv out
 * venv list
+* venv make
 * venv rm
 
 Links

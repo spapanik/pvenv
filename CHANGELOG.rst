@@ -9,7 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Added
+^^^^^
 * rmvenv/venv rm to remove venvs
+* mkvenv/venv make to create venvs
 
 `0.1.1`_ - 2022-22-14
 ---------------------
