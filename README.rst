@@ -50,6 +50,7 @@ After that, you can use the following commands:
 
 * invenv
 * outvenv
+* avenv
 * lsvenv
 * mkvenv
 * rmvenv
@@ -58,6 +59,7 @@ or as subcommands of venv:
 
 * venv in
 * venv out
+* venv activate
 * venv list
 * venv make
 * venv rm

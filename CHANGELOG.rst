@@ -13,6 +13,7 @@ Added
 ^^^^^
 * rmvenv/venv rm to remove venvs
 * mkvenv/venv make to create venvs
+* avenv/venv activate to activate venvs
 
 `0.1.1`_ - 2022-22-14
 ---------------------
