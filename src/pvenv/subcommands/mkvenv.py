@@ -10,13 +10,6 @@ DEV_NULL = Path(os.devnull)
 
 class Command(BaseCommand):
     def __init__(self, options: Namespace):
-        import sys
-
-        print("\n")
-        t = " ".join(sys.argv[1:]).strip()
-        print("=" * len(t))
-        print(t)
-        print("=" * len(t))
         super().__init__(options)
         self.base_dir: Path = options.base_dir
         self.venv: str = options.venv
