@@ -9,6 +9,9 @@ function venv {
     activate)
         avenv "${@:2}"
         ;;
+    deactivate)
+        dvenv "${@:2}"
+        ;;
     list)
         lsvenv "${@:2}"
         ;;
@@ -42,6 +45,13 @@ function outvenv {
 function avenv {
     local IFS=$'\n'
     for command in $(pvenv activate "$@"); do
+        eval "${command}"
+    done
+}
+
+function dvenv {
+    local IFS=$'\n'
+    for command in $(pvenv deactivate "$@"); do
         eval "${command}"
     done
 }

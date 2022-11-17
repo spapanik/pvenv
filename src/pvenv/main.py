@@ -40,6 +40,7 @@ def parse_args():
     avenv_parser = subparsers.add_parser("activate", help="Activate a venv")
     avenv_parser.add_argument("venv")
     avenv_parser.add_argument("-n", "--no-cd", dest="cd", action="store_false")
+    subparsers.add_parser("deactivate", help="Deactivate a venv")
     subparsers.add_parser("list", help="List venvs")
     mkvenv_parser = subparsers.add_parser("make", help="Make a new venv")
     mkvenv_parser.add_argument("venv", nargs="?", default=Path().absolute().name)
@@ -61,6 +62,8 @@ def main() -> None:
         module = subcommands.outvenv
     elif args.command == "activate":
         module = subcommands.avenv
+    elif args.command == "deactivate":
+        module = subcommands.dvenv
     elif args.command == "list":
         module = subcommands.lsvenv
     elif args.command == "make":
