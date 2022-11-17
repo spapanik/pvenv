@@ -41,7 +41,7 @@ class Command(BaseCommand):
             print(f"mkdir -p {venv_path}")
 
         if self.project != DEV_NULL:
-            print(f"cat {self.project} > {venv_path}/.project")
+            print(f"echo {self.project} > {venv_path}/.project")
 
         for i, environment in enumerate(self.environments):
             if i == 0:

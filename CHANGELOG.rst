@@ -9,6 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Fixed
+^^^^^
+* Fix setting the project in mkvenv
+
 `0.3.1`_ - 2022-22-17
 ---------------------
 Fixed
