@@ -2,16 +2,21 @@
 Usage
 =====
 
-Run ``pvenv`` to get the path to be sourced in the shell rc:
+venv [-h] [-V]  {in,out,activate,deactivate,list,make,rm} ...
 
-.. code:: console
+A utility to manage virtual environments
 
-   $ pipx install pvenv
+positional arguments:
+  base_dir
+  {in,out,activate,deactivate,list,make,rm}
+    in                  Export new variables for the venv
+    out                 List venvs
+    activate            Activate a venv
+    deactivate          Deactivate a venv
+    list                List venvs
+    make                Make a new venv
+    rm                  Remove virtualenvs
 
-After that, you can use the following commands:
-
-* lsvenv
-
-or as subcommands of venv:
-
-* venv list
+options:
+  -h, --help            show this help message and exit
+  -V, --version         Print the version and exit
