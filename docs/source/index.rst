@@ -7,6 +7,7 @@
 
    installation
    usage
+   subcommands
 
 .. toctree::
    :maxdepth: 0
