@@ -37,34 +37,23 @@ The easiest way is to use pipx to install ``pvenv``.
 Please make sure that the correct directory is added to your path. This
 depends on the OS.
 
-Usage
-^^^^^
-
 Run ``pvenv`` to get the path to be sourced in the shell rc:
 
 .. code:: console
 
-   $ pipx install pvenv
+   $ pvenv
 
-After that, you can use the following commands:
+Usage
+^^^^^
 
-* invenv
-* outvenv
-* avenv
-* dvenv
-* lsvenv
-* mkvenv
-* rmvenv
+You can use the following commands:
 
-or as subcommands of venv:
+* `venv activate` (aliased to `avenv`) to activate a virtual environment
+* `venv deactivate` (aliased to `dvenv`) to deactivate a virtual environment
+* `venv list` (aliased to `lsvenv`) to list all the virtual environments
+* `venv make` (aliased to `mkvenv`) to create a new virtual environment
+* `venv rm` (aliased to `rmvenv`) to remove a virtual environment
 
-* venv in
-* venv out
-* venv activate
-* venv deactivate
-* venv list
-* venv make
-* venv rm
 
 Links
 -----
