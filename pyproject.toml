@@ -49,7 +49,7 @@ testpaths = "tests"
 
 [tool.poetry]
 name = "pvenv"
-version = "0.3.1"
+version = "0.4.0"
 description = "Easy python virtual environment management"
 authors = [
     "Stephanos Kuma <stephanos@kuma.ai>",

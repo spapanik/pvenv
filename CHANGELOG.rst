@@ -9,6 +9,8 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+`0.4.0`_ - 2022-22-18
+---------------------
 Fixed
 ^^^^^
 * Fixed setting the project path when using `mkvenv`
@@ -41,7 +43,8 @@ Added
 ^^^^^
 * Added `lsvenv` to list all the available virtual environments
 
-.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.3.1...main
+.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.4.0...main
+.. _`0.4.0`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.4.0
 .. _`0.3.1`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.3.1
 .. _`0.3.0`: https://github.com/spapanik/pvenv/compare/v0.2.0...v0.3.0
 .. _`0.2.0`: https://github.com/spapanik/pvenv/compare/v0.1.0...v0.2.0
