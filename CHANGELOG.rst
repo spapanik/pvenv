@@ -11,35 +11,35 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 
 Fixed
 ^^^^^
-* Fix setting the project in mkvenv
+* Fixed setting the project path when using `mkvenv`
 
 `0.3.1`_ - 2022-22-17
 ---------------------
 Fixed
 ^^^^^
-* Removed breaking bug in mkvenv
+* Fixed error messages when using `mkvenv`
 
 `0.3.0`_ - 2022-22-17
 ---------------------
 Added
 ^^^^^
-* rmvenv/venv rm to remove venvs
-* mkvenv/venv make to create venvs
-* avenv/venv activate to activate venvs
-* dvenv/venv deactivate to deactivate venvs
+* Added `rmvenv` to remove existing virtual environments
+* Added `mkvenv` to create virtual environments
+* Added `avenv` to activate virtual environments
+* Added `dvenv` to deactivate virtual environments
 
 `0.2.0`_ - 2022-22-14
 ---------------------
 Added
 ^^^^^
-* invenv/venv in to source env vars to a venv
-* outvenv/venv out to leave a venv with assigning the env vars to their original values
+* Added `invenv` to source environment variables
+* Added `outvenv` to remove sourced environment variables with `invenv`
 
 `0.1.0`_ - 2022-22-13
 ---------------------
 Added
 ^^^^^
-* lsvenv/venv list to list all the available venvs
+* Added `lsvenv` to list all the available virtual environments
 
 .. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.3.1...main
 .. _`0.3.1`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.3.1
