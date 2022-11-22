@@ -9,6 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Fixed
+^^^^^
+* Fixed `avenv` with multiple environment variables
+
 `0.4.0`_ - 2022-22-18
 ---------------------
 Fixed

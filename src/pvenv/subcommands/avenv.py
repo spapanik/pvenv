@@ -28,8 +28,9 @@ class Command(BaseCommand):
             environment = venv_path.joinpath(".environment")
             if environment.exists():
                 with open(environment) as file:
-                    for line in file:
-                        print(f"invenv {line.strip()}")
+                    environment_files = {line.strip() for line in file}
+                if environment_files:
+                    print(f"invenv -f {' -f '.join(environment_files)}")
 
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():

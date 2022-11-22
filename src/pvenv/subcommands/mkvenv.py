@@ -46,7 +46,7 @@ class Command(BaseCommand):
         for i, environment in enumerate(self.environments):
             if i == 0:
                 print(f": > {venv_path}/.environment")
-            print(f"cat {environment} >> {venv_path}/.environment")
+            print(f"echo {environment} >> {venv_path}/.environment")
 
         print(f"avenv {self.venv}")
 
