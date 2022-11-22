@@ -13,19 +13,19 @@ Fixed
 ^^^^^
 * Fixed `avenv` with multiple environment variables
 
-`0.4.0`_ - 2022-22-18
+`0.4.0`_ - 2022-11-18
 ---------------------
 Fixed
 ^^^^^
 * Fixed setting the project path when using `mkvenv`
 
-`0.3.1`_ - 2022-22-17
+`0.3.1`_ - 2022-11-17
 ---------------------
 Fixed
 ^^^^^
 * Fixed error messages when using `mkvenv`
 
-`0.3.0`_ - 2022-22-17
+`0.3.0`_ - 2022-11-17
 ---------------------
 Added
 ^^^^^
@@ -34,21 +34,21 @@ Added
 * Added `avenv` to activate virtual environments
 * Added `dvenv` to deactivate virtual environments
 
-`0.2.0`_ - 2022-22-14
+`0.2.0`_ - 2022-11-14
 ---------------------
 Added
 ^^^^^
 * Added `invenv` to source environment variables
 * Added `outvenv` to remove sourced environment variables with `invenv`
 
-`0.1.0`_ - 2022-22-13
+`0.1.0`_ - 2022-11-13
 ---------------------
 Added
 ^^^^^
 * Added `lsvenv` to list all the available virtual environments
 
 .. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.4.0...main
-.. _`0.4.0`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.4.0
+.. _`0.4.0`: https://github.com/spapanik/pvenv/compare/v0.3.1...v0.4.0
 .. _`0.3.1`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.3.1
 .. _`0.3.0`: https://github.com/spapanik/pvenv/compare/v0.2.0...v0.3.0
 .. _`0.2.0`: https://github.com/spapanik/pvenv/compare/v0.1.0...v0.2.0
