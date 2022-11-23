@@ -2,6 +2,8 @@ import os
 from argparse import Namespace
 from pathlib import Path
 
+from dj_settings import SettingsParser
+
 from pvenv.subcommands.base import BaseCommand
 
 
@@ -27,10 +29,14 @@ class Command(BaseCommand):
                     print(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
+                new_environment = {}
                 with open(environment) as file:
-                    environment_files = {line.strip() for line in file}
-                if environment_files:
-                    print(f"invenv -f {' -f '.join(environment_files)}")
+                    for line in file:
+                        new_environment |= SettingsParser(line.strip()).data
+                environment_string = " ".join(
+                    f"{key}={value}" for key, value in new_environment.items()
+                )
+                print(f"invenv {environment_string}")
 
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():

@@ -73,6 +73,9 @@ pvenv = "pvenv.main:main"
 # python version
 python = "^3.7.0"
 
+# dependencies
+dj_settings = "^4.2.0"
+
 [tool.poetry.group.dev.dependencies]
 ipdb = {version = "^0.13.0", python = "^3.10.0"}
 ipython = {version = "^8.6.0", python = "^3.10.0"}
