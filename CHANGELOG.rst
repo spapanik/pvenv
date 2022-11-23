@@ -9,6 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Fixed
+^^^^^
+* Unset completely the new env vars
+
 `0.5.0`_ - 2022-11-22
 ---------------------
 Fixed

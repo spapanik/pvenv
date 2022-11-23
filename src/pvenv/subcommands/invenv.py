@@ -33,5 +33,8 @@ class Command(BaseCommand):
                 raise RuntimeError("Already in a venv, aborting...")
             print(f"export {self._prefix}=true")
         for key, value in new_vars.items():
-            print(f"export {self._prefix}_{key}={os.getenv(key, '')}")
+            if key in os.environ:
+                print(f"export {self._prefix}_{key}={os.getenv(key, '')}")
+            else:
+                print(f"export {self._prefix}_unset_{key}=")
             print(f"export {key}={value}")
