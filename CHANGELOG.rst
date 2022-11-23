@@ -9,6 +9,8 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+`0.6.0`_ - 2022-11-23
+---------------------
 Added
 ^^^^^
 * Allow overriding env vars with a .d directory
@@ -57,7 +59,8 @@ Added
 ^^^^^
 * Added `lsvenv` to list all the available virtual environments
 
-.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.5.0...main
+.. _`unreleased`: https://github.com/spapanik/pvenv/compare/v0.6.0...main
+.. _`0.6.0`: https://github.com/spapanik/pvenv/compare/v0.5.0...v0.6.0
 .. _`0.5.0`: https://github.com/spapanik/pvenv/compare/v0.4.0...v0.5.0
 .. _`0.4.0`: https://github.com/spapanik/pvenv/compare/v0.3.1...v0.4.0
 .. _`0.3.1`: https://github.com/spapanik/pvenv/compare/v0.3.0...v0.3.1
