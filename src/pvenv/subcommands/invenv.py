@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 import os
 from argparse import Namespace
-from typing import List
 
 from pvenv.subcommands.base import BaseCommand
 
@@ -8,11 +9,11 @@ from pvenv.subcommands.base import BaseCommand
 class Command(BaseCommand):
     def __init__(self, options: Namespace):
         super().__init__(options)
-        self.env_vars: List[str] = options.env_vars
+        self.env_vars: list[str] = options.env_vars
         self.files = options.files
 
     @staticmethod
-    def parse_env_var(line: str) -> List[str]:
+    def parse_env_var(line: str) -> list[str]:
         return line.split("=", maxsplit=1)
 
     def run(self):

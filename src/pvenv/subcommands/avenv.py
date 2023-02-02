@@ -1,6 +1,9 @@
+from __future__ import annotations
+
 import os
 from argparse import Namespace
 from pathlib import Path
+from typing import Any
 
 from dj_settings import SettingsParser
 
@@ -29,10 +32,10 @@ class Command(BaseCommand):
                     print(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
-                new_environment = {}
+                new_environment: dict[str, Any] = {}
                 with open(environment) as file:
                     for line in file:
-                        new_environment |= SettingsParser(line.strip()).data
+                        new_environment.update(SettingsParser(line.strip()).data)
                 environment_string = " ".join(
                     f"{key}={value}" for key, value in new_environment.items()
                 )

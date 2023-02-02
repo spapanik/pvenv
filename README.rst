@@ -5,9 +5,6 @@ pvenv: Easy python virtual environment management
 .. image:: https://github.com/spapanik/pvenv/actions/workflows/build.yml/badge.svg
   :alt: Build
   :target: https://github.com/spapanik/pvenv/actions/workflows/build.yml
-.. image:: https://img.shields.io/lgtm/alerts/g/spapanik/pvenv.svg
-  :alt: Total alerts
-  :target: https://lgtm.com/projects/g/spapanik/pvenv/alerts/
 .. image:: https://img.shields.io/github/license/spapanik/pvenv
   :alt: License
   :target: https://github.com/spapanik/pvenv/blob/main/LICENSE.txt

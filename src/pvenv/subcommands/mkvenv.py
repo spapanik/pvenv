@@ -1,7 +1,8 @@
+from __future__ import annotations
+
 import os
 from argparse import Namespace
 from pathlib import Path
-from typing import List
 
 from pvenv.subcommands.base import BaseCommand
 
@@ -15,13 +16,13 @@ class Command(BaseCommand):
         self.venv: str = options.venv
         self.python: str = options.python
         self.project: Path = Path(options.project).absolute()
-        self.environments: List[Path] = self._get_environments()
+        self.environments: list[Path] = self._get_environments()
 
     def _get_project(self) -> Path:
         project = self._options.project
         return Path(project).absolute() if project else DEV_NULL
 
-    def _get_environments(self) -> List[Path]:
+    def _get_environments(self) -> list[Path]:
         environments = self._options.environments
         if self.project == DEV_NULL and environments:
             raise RuntimeError("Cannot set environ in independent")
