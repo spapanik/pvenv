@@ -28,12 +28,12 @@ class Command(BaseCommand):
         project = venv_path.joinpath(".project")
         if project.exists():
             if self.cd:
-                with open(project) as file:
+                with project.open() as file:
                     print(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
                 new_environment: dict[str, Any] = {}
-                with open(environment) as file:
+                with environment.open() as file:
                     for line in file:
                         new_environment.update(SettingsParser(line.strip()).data)
                 environment_string = " ".join(

@@ -10,8 +10,8 @@ sys.tracebacklimit = 0
 
 
 def get_default_base() -> Path:
-    default = f"{os.path.expanduser('~')}/.local/share/virtualenvs"
-    return Path(os.getenv("PVENV_BASE", default))
+    default = "~/.local/share/virtualenvs"
+    return Path(os.getenv("PVENV_BASE", default)).expanduser().absolute()
 
 
 def parse_args():

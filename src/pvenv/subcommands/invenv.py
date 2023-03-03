@@ -19,9 +19,9 @@ class Command(BaseCommand):
     def run(self):
         new_vars = {}
         for file in self.files:
-            with open(file) as f:
-                for line in f:
-                    line = line.strip()
+            with file.open() as f:
+                for raw_line in f:
+                    line = raw_line.strip()
                     if line and not line.startswith("#"):
                         key, value = self.parse_env_var(line)
                         new_vars[key] = value
