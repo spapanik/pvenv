@@ -93,8 +93,10 @@ repository = "https://github.com/spapanik/pvenv"
 
 keywords = ["venv"]
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
     "Operating System :: OS Independent",
+    "Topic :: Software Development :: User Interfaces",
 ]
 
 [tool.poetry.scripts]
