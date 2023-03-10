@@ -89,7 +89,9 @@ authors = [
 license = "LGPL-3.0+"
 readme = "README.rst"
 
+homepage = "https://p-venv.readthedocs.io/en/stable/"
 repository = "https://github.com/spapanik/pvenv"
+documentation = "https://p-venv.readthedocs.io/en/stable/"
 
 keywords = ["venv"]
 classifiers = [
