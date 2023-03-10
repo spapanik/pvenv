@@ -34,22 +34,22 @@ class Command(BaseCommand):
             raise RuntimeError(f"Venv {self.venv} already exists, aborting...")
 
         if self.python == "current":
-            print(f"python -m venv {venv_path}")
+            self.print(f"python -m venv {venv_path}")
         elif self.python:
-            print(f"pyenv shell {self.python}")
-            print(f"python -m venv {venv_path}")
+            self.print(f"pyenv shell {self.python}")
+            self.print(f"python -m venv {venv_path}")
         else:
-            print(f"mkdir -p {venv_path}")
+            self.print(f"mkdir -p {venv_path}")
 
         if self.project != DEV_NULL:
-            print(f"echo {self.project} > {venv_path}/.project")
+            self.print(f"echo {self.project} > {venv_path}/.project")
 
         for i, environment in enumerate(self.environments):
             if i == 0:
-                print(f": > {venv_path}/.environment")
-            print(f"echo {environment} >> {venv_path}/.environment")
+                self.print(f": > {venv_path}/.environment")
+            self.print(f"echo {environment} >> {venv_path}/.environment")
 
-        print(f"avenv {self.venv}")
+        self.print(f"avenv {self.venv}")
 
         if self.python:
-            print("pip install --upgrade pip wheel")
+            self.print("pip install --upgrade pip wheel")

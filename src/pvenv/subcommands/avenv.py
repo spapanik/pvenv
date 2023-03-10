@@ -23,13 +23,13 @@ class Command(BaseCommand):
             raise RuntimeError(f"Venv {self.venv} doesn't exist, aborting...")
 
         if os.getenv("VIRTUAL_ENV"):
-            print("dvenv")
+            self.print("dvenv")
 
         project = venv_path.joinpath(".project")
         if project.exists():
             if self.cd:
                 with project.open() as file:
-                    print(f"cd {file.read().strip()}")
+                    self.print(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
                 new_environment: dict[str, Any] = {}
@@ -39,10 +39,10 @@ class Command(BaseCommand):
                 environment_string = " ".join(
                     f"{key}={value}" for key, value in new_environment.items()
                 )
-                print(f"invenv {environment_string}")
+                self.print(f"invenv {environment_string}")
 
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():
-            print(f". {activate}")
+            self.print(f". {activate}")
         else:
-            print(f"export VIRTUAL_ENV=dummy_{self.venv}")
+            self.print(f"export VIRTUAL_ENV=dummy_{self.venv}")

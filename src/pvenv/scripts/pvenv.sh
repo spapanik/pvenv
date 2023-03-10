@@ -29,30 +29,54 @@ function venv {
 }
 
 function invenv {
+    local LC_TYPE=C
     local IFS=$'\n'
     for command in $(pvenv in "$@"); do
-        eval "${command}"
+        local first_char=$(printf '%d' "'${command:0:1}")
+        if [[ "${first_char}" == 2 ]]; then
+            eval "${command:1}"
+        else
+            echo "${command}"
+        fi
     done
 }
 
 function outvenv {
+    local LC_TYPE=C
     local IFS=$'\n'
     for command in $(pvenv out); do
-        eval "${command}"
+        local first_char=$(printf '%d' "'${command:0:1}")
+        if [[ "${first_char}" == 2 ]]; then
+            eval "${command:1}"
+        else
+            echo "${command}"
+        fi
     done
 }
 
 function avenv {
+    local LC_TYPE=C
     local IFS=$'\n'
     for command in $(pvenv activate "$@"); do
-        eval "${command}"
+        local first_char=$(printf '%d' "'${command:0:1}")
+        if [[ "${first_char}" == 2 ]]; then
+            eval "${command:1}"
+        else
+            echo "${command}"
+        fi
     done
 }
 
 function dvenv {
+    local LC_TYPE=C
     local IFS=$'\n'
     for command in $(pvenv deactivate "$@"); do
-        eval "${command}"
+        local first_char=$(printf '%d' "'${command:0:1}")
+        if [[ "${first_char}" == 2 ]]; then
+            eval "${command:1}"
+        else
+            echo "${command}"
+        fi
     done
 }
 
@@ -61,9 +85,15 @@ function lsvenv {
 }
 
 function mkvenv {
+    local LC_TYPE=C
     local IFS=$'\n'
     for command in $(pvenv make "$@"); do
-        eval "${command}"
+        local first_char=$(printf '%d' "'${command:0:1}")
+        if [[ "${first_char}" == 2 ]]; then
+            eval "${command:1}"
+        else
+            echo "${command}"
+        fi
     done
 }
 

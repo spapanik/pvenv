@@ -9,6 +9,10 @@ The format is based on `Keep a Changelog`_, and this project adheres to `Semanti
 `Unreleased`_
 -------------
 
+Fixed
+^^^^^
+* Fixed the bug with unprintable help in subcommands
+
 Removed
 ^^^^^^^
 * Dropped python 3.7 support
