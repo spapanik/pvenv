@@ -80,7 +80,7 @@ data_file = ".cov_cache/coverage.dat"
 
 [tool.poetry]
 name = "pvenv"
-version = "0.6.0"
+version = "1.0.0"
 description = "Easy python virtual environment management"
 authors = [
     "Stephanos Kuma <stephanos@kuma.ai>",
