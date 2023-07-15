@@ -14,7 +14,7 @@ def get_default_base() -> Path:
     return Path(os.getenv("PVENV_BASE", default)).expanduser().absolute()
 
 
-def parse_args():
+def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="venv",
         description="A utility to manage virtual environments",

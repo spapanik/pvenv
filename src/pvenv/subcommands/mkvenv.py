@@ -28,7 +28,7 @@ class Command(BaseCommand):
             raise RuntimeError("Cannot set environ in independent")
         return [self.project.joinpath(environ) for environ in environments]
 
-    def run(self):
+    def run(self) -> None:
         venv_path = self.base_dir.joinpath(self.venv)
         if venv_path.exists():
             raise RuntimeError(f"Venv {self.venv} already exists, aborting...")

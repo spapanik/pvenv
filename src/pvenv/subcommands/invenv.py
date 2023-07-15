@@ -16,7 +16,7 @@ class Command(BaseCommand):
     def parse_env_var(line: str) -> list[str]:
         return line.split("=", maxsplit=1)
 
-    def run(self):
+    def run(self) -> None:
         new_vars = {}
         for file in self.files:
             with file.open() as f:

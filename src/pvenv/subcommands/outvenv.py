@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def __init__(self, options: Namespace):
         super().__init__(options)
 
-    def run(self):
+    def run(self) -> None:
         if self._prefix not in os.environ:
             return
 

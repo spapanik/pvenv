@@ -9,7 +9,7 @@ class Command(BaseCommand):
         super().__init__(options)
         self.base_dir: Path = options.base_dir
 
-    def run(self):
+    def run(self) -> None:
         for directory in sorted(self.base_dir.glob("*")):
             if directory.is_dir():
                 print(directory.name)

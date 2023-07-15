@@ -1,5 +1,6 @@
 import os
 from argparse import Namespace
+from typing import Any
 
 PREFIX = chr(2)
 
@@ -9,11 +10,11 @@ class BaseCommand:
         self._prefix = "_pvenv_env"
         self._options = options
 
-    def run(self):
+    def run(self) -> None:
         raise NotImplementedError(f"{self.__class__.__name__} must implement run")
 
     @staticmethod
-    def print(*args: str, **kwargs):  # noqa: A003
+    def print(*args: str, **kwargs: Any) -> None:  # noqa: A003
         if not os.getenv("PVENV_DEBUG"):
             args = tuple(f"{PREFIX}{arg}" for arg in args)
         print(*args, **kwargs)

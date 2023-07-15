@@ -17,7 +17,7 @@ class Command(BaseCommand):
         self.venv: str = options.venv
         self.cd: bool = options.cd
 
-    def run(self):
+    def run(self) -> None:
         venv_path = self.base_dir.joinpath(self.venv)
         if not venv_path.exists():
             raise RuntimeError(f"Venv {self.venv} doesn't exist, aborting...")

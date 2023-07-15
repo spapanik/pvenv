@@ -13,7 +13,7 @@ class Command(BaseCommand):
         self.base_dir: Path = options.base_dir
         self.venv_to_remove: list[str] = options.venvs_to_remove
 
-    def run(self):
+    def run(self) -> None:
         for venv in self.venv_to_remove:
             venv_path = self.base_dir.joinpath(venv)
             if not venv_path.exists():
