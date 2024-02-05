@@ -54,4 +54,4 @@ class Command(BaseCommand):
         self.print(f"avenv {self.venv}")
 
         if self.python:
-            self.print("pip install --upgrade pip wheel")
+            self.print("pip install --upgrade pip")
