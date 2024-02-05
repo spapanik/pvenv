@@ -25,13 +25,15 @@ class Command(BaseCommand):
     def _get_environments(self) -> list[Path]:
         environments = self._options.environments
         if self.project == DEV_NULL and environments:
-            raise RuntimeError("Cannot set environ in independent")
+            msg = "Cannot set environ in independent"
+            raise RuntimeError(msg)
         return [self.project.joinpath(environ) for environ in environments]
 
     def run(self) -> None:
         venv_path = self.base_dir.joinpath(self.venv)
         if venv_path.exists():
-            raise RuntimeError(f"Venv {self.venv} already exists, aborting...")
+            msg = f"Venv {self.venv} already exists, aborting..."
+            raise RuntimeError(msg)
 
         if self.python == "current":
             self.print(f"python -m venv {venv_path}")

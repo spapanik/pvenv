@@ -11,10 +11,11 @@ class BaseCommand:
         self._options = options
 
     def run(self) -> None:
-        raise NotImplementedError(f"{self.__class__.__name__} must implement run")
+        msg = f"{self.__class__.__name__} must implement run"
+        raise NotImplementedError(msg)
 
     @staticmethod
-    def print(*args: str, **kwargs: Any) -> None:  # noqa: A003
+    def print(*args: str, **kwargs: Any) -> None:
         if not os.getenv("PVENV_DEBUG"):
             args = tuple(f"{PREFIX}{arg}" for arg in args)
         print(*args, **kwargs)
