@@ -133,7 +133,7 @@ authors = [
 ]
 
 license = "LGPL-3.0+"
-readme = "README.rst"
+readme = "docs/README.md"
 
 homepage = "https://p-venv.readthedocs.io/en/stable/"
 repository = "https://github.com/spapanik/pvenv"
@@ -175,5 +175,6 @@ pytest = "^8.0"
 pytest-cov = "^4.1"
 
 [tool.poetry.group.docs.dependencies]
-furo = { version = "^2024.1", python = "^3.10" }
-sphinx = { version = "^7.2", python = "^3.10" }
+mkdocs = "^1.5"
+mkdocs-material = "^9.5"
+Pygments = "^2.17"
