@@ -1,6 +1,4 @@
-===========
-Subcommands
-===========
+# Subcommands
 
 ## venv activate/avenv
 

@@ -1,64 +1,33 @@
-=================================================
-pvenv: Easy python virtual environment management
-=================================================
+# pvenv: Easy python virtual environment management
 
-.. image:: https://github.com/spapanik/pvenv/actions/workflows/tests.yml/badge.svg
-:alt: Tests
-:target: https://github.com/spapanik/pvenv/actions/workflows/tests.yml
-.. image:: https://img.shields.io/github/license/spapanik/pvenv
-:alt: License
-:target: https://github.com/spapanik/pvenv/blob/main/LICENSE.txt
-.. image:: https://img.shields.io/pypi/v/pvenv
-:alt: PyPI
-:target: https://pypi.org/project/pvenv
-.. image:: https://pepy.tech/badge/pvenv
-:alt: Downloads
-:target: https://pepy.tech/project/pvenv
-.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-:alt: code style: black
-:target: https://github.com/psf/black
-.. image:: https://img.shields.io/badge/build%20automation-yamk-success
-:alt: build automation: yam
-:target: https://github.com/spapanik/yamk
-.. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json
-:alt: Lint: ruff
-:target: https://github.com/charliermarsh/ruff
+[![tests][test_badge]][test_url]
+[![license][licence_badge]][licence_url]
+[![pypi][pypi_badge]][pypi_url]
+[![downloads][pepy_badge]][pepy_url]
+[![code style: black][black_badge]][black_url]
+[![build automation: yam][yam_badge]][yam_url]
+[![Lint: ruff][ruff_badge]][ruff_url]
 
-## In a nutshell
-
-Installation
-^^^^^^^^^^^^
-
-The easiest way is to use pipx to install `pvenv`.
-
-.. code:: console
-
-$ pipx install pvenv
-
-Please make sure that the correct directory is added to your path. This
-depends on the OS.
-
-Run `pvenv` to get the path to be sourced in the shell rc:
-
-.. code:: console
-
-$ pvenv
-
-Usage
-^^^^^
-
-You can use the following commands:
-
--   `venv activate` (aliased to `avenv`) to activate a virtual environment
--   `venv deactivate` (aliased to `dvenv`) to deactivate a virtual environment
--   `venv list` (aliased to `lsvenv`) to list all the virtual environments
--   `venv make` (aliased to `mkvenv`) to create a new virtual environment
--   `venv rm` (aliased to `rmvenv`) to remove a virtual environment
+`pvenv` provides an easy way to use venvs in python.
 
 ## Links
 
--   `Documentation`\_
--   `Changelog`\_
+-   [Documentation]
+-   [Changelog]
 
-.. \_Changelog: https://github.com/spapanik/pvenv/blob/main/CHANGELOG.rst
-.. \_Documentation: https://p-venv.readthedocs.io/en/stable/
+[test_badge]: https://github.com/spapanik/pvenv/actions/workflows/tests.yml/badge.svg
+[test_url]: https://github.com/spapanik/pvenv/actions/workflows/tests.yml
+[licence_badge]: https://img.shields.io/badge/License-LGPL_v3-blue.svg
+[licence_url]: https://github.com/spapanik/pvenv/blob/main/docs/LICENSE.md
+[pypi_badge]: https://img.shields.io/pypi/v/pvenv
+[pypi_url]: https://pypi.org/project/pvenv
+[pepy_badge]: https://pepy.tech/badge/pvenv
+[pepy_url]: https://pepy.tech/project/pvenv
+[black_badge]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black_url]: https://github.com/psf/black
+[yam_badge]: https://img.shields.io/badge/build%20automation-yamk-success
+[yam_url]: https://github.com/spapanik/yamk
+[ruff_badge]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json
+[ruff_url]: https://github.com/charliermarsh/ruff
+[Documentation]: https://p-venv.readthedocs.io/en/stable/
+[Changelog]: https://github.com/spapanik/pvenv/blob/main/docs/CHANGELOG.md
