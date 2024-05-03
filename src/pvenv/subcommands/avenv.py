@@ -5,7 +5,7 @@ from argparse import Namespace
 from pathlib import Path
 from typing import Any
 
-from dj_settings import SettingsParser
+from dj_settings import ConfigParser
 
 from pvenv.subcommands.base import BaseCommand
 
@@ -36,7 +36,7 @@ class Command(BaseCommand):
                 new_environment: dict[str, Any] = {}
                 with environment.open() as file:
                     for line in file:
-                        new_environment.update(SettingsParser(line.strip()).data)
+                        new_environment.update(ConfigParser([line.strip()]).data)
                 environment_string = " ".join(
                     f"{key}={value}" for key, value in new_environment.items()
                 )
