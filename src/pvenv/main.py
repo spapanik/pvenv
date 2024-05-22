@@ -4,7 +4,8 @@ import sys
 from pathlib import Path
 from types import ModuleType
 
-from pvenv import __version__, subcommands
+from pvenv import subcommands
+from pvenv.__version__ import __version__
 
 sys.tracebacklimit = 0
 
