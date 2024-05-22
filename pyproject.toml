@@ -150,7 +150,7 @@ classifiers = [
 ]
 
 [tool.poetry.scripts]
-pvenv = "pvenv.main:main"
+pvenv = "pvenv.__main__:main"
 
 [tool.poetry.dependencies]
 # python version
