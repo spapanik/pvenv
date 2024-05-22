@@ -45,6 +45,9 @@ def parse_args() -> Namespace:
     subparsers.add_parser("out", help="List venvs", parents=[parent_parser])
     subparsers.add_parser("list", help="List venvs", parents=[parent_parser])
     subparsers.add_parser(
+        "init", help="Initialisation instructions for pvenv", parents=[parent_parser]
+    )
+    subparsers.add_parser(
         "deactivate", help="Deactivate a venv", parents=[parent_parser]
     )
 
