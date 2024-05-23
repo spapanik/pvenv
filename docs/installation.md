@@ -1,28 +1,42 @@
 # Installation
 
-The easiest way is to use [pipx] to install `pvenv`.
+## Officially Supported Method: Using pipx
+
+We recommend using [pipx] for the installation of `pvenv` as it provides
+an isolated environment for the package, preventing any dependency conflicts.
+
+To install `pvenv` using pipx, run the following command in your terminal:
 
 ```console
 $ pipx install pvenv
 ```
 
-This is the only officially supported way of installing it.
+## Alternative Method: Using pip
 
-Alternatively, you can install it with [pip]:
+As an alternative, you can use [pip] to install `pvenv`.
+However, this method does not provide an isolated environment for the package,
+which may lead to dependency conflicts or leave your system in an inconsistent state.
+Therefore, this method is not recommended or supported.
+
+To install `pvenv` using pip, run the following command in your terminal:
 
 ```console
 $ pip install --user pvenv
 ```
 
-The biggest issue with this approach is that you won't have an isolated
-environment for `pvenv`, therefore you might run into dependency
-conflicts, and so this is neither recommended nor supported.
+## Python Version Requirement
 
-In both case, after it's installed, you need to source its path to your shell's rc.
+Please note that `pvenv` requires Python 3.9 or higher. Please ensure
+that your system is using the correct Python version. If not,
+consider using a tool like [pyenv] to create a shell with the required Python version.
+
+## Post installation steps
+
+In both cases, after it's installed, you need to source its path to your shell's rc.
 You can get the path by executing it:
 
 ```console
-$ pvenv
+$ pvenv init
 ```
 
 [pip]: https://pip.pypa.io/en/stable/
