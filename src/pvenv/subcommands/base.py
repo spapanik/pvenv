@@ -6,7 +6,7 @@ PREFIX = chr(2)
 
 
 class BaseCommand:
-    def __init__(self, options: Namespace):
+    def __init__(self, options: Namespace) -> None:
         self._prefix = "_pvenv_env"
         self._options = options
 

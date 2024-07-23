@@ -1,11 +1,14 @@
 from argparse import Namespace
-from pathlib import Path
+from typing import TYPE_CHECKING
 
 from pvenv.subcommands.base import BaseCommand
 
+if TYPE_CHECKING:
+    from pathlib import Path
+
 
 class Command(BaseCommand):
-    def __init__(self, options: Namespace):
+    def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.base_dir: Path = options.base_dir
 

@@ -1,17 +1,19 @@
 from __future__ import annotations
 
 import os
-from argparse import Namespace
-from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from dj_settings import ConfigParser
 
 from pvenv.subcommands.base import BaseCommand
 
+if TYPE_CHECKING:
+    from argparse import Namespace
+    from pathlib import Path
+
 
 class Command(BaseCommand):
-    def __init__(self, options: Namespace):
+    def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.base_dir: Path = options.base_dir
         self.venv: str = options.venv

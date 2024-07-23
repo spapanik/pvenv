@@ -5,7 +5,7 @@ from pvenv.subcommands.base import BaseCommand
 
 
 class Command(BaseCommand):
-    def __init__(self, options: Namespace):
+    def __init__(self, options: Namespace) -> None:
         super().__init__(options)
 
     def run(self) -> None:
