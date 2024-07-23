@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+## [2.0.0] - 2024-07-23
+
 ### Changed
 
 -   Dropped python 3.8 support
@@ -73,7 +75,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[Unreleased]: https://github.com/spapanik/pvenv/compare/v1.0.0...main
+[Unreleased]: https://github.com/spapanik/pvenv/compare/v2.0.0...main
+[2.0.0]: https://github.com/spapanik/pvenv/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/spapanik/pvenv/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/spapanik/pvenv/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/spapanik/pvenv/compare/v0.4.0...v0.5.0
