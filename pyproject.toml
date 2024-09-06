@@ -43,7 +43,7 @@ pvenv = "pvenv.__main__:main"
 [tool.phosphorus.dev-dependencies]
 dev = [
     "ipdb~=0.13",
-    "ipython~=8.21",
+    "ipython~=8.18",
 ]
 lint = [
     "black~=24.8",
