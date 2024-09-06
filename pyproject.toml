@@ -27,7 +27,7 @@ classifiers = [
     "Topic :: Software Development :: User Interfaces",
 ]
 
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 dependencies = [
     "dj_settings~=5.0",
 ]
