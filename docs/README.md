@@ -24,7 +24,7 @@
 [test_badge]: https://github.com/spapanik/pvenv/actions/workflows/tests.yml/badge.svg
 [test_url]: https://github.com/spapanik/pvenv/actions/workflows/tests.yml
 [licence_badge]: https://img.shields.io/pypi/l/pvenv
-[licence_url]: https://github.com/spapanik/pvenv/blob/main/docs/LICENSE.md
+[licence_url]: https://p-venv.readthedocs.io/en/stable/LICENSE/
 [pypi_badge]: https://img.shields.io/pypi/v/pvenv
 [pypi_url]: https://pypi.org/project/pvenv
 [pepy_badge]: https://pepy.tech/badge/pvenv
@@ -36,4 +36,4 @@
 [ruff_badge]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json
 [ruff_url]: https://github.com/charliermarsh/ruff
 [Documentation]: https://p-venv.readthedocs.io/en/stable/
-[Changelog]: https://github.com/spapanik/pvenv/blob/main/docs/CHANGELOG.md
+[Changelog]: https://p-venv.readthedocs.io/en/stable/CHANGELOG/
