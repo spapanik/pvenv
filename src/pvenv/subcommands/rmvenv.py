@@ -3,6 +3,8 @@ from __future__ import annotations
 import shutil
 from typing import TYPE_CHECKING
 
+from pyutilkit.term import SGRString
+
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -20,12 +22,16 @@ class Command(BaseCommand):
         for venv in self.venv_to_remove:
             venv_path = self.base_dir.joinpath(venv)
             if not venv_path.exists():
-                print(f"{venv} does not exist, skipping...")
+                self.output(
+                    SGRString(f"{venv} does not exist, skipping..."), is_error=True
+                )
                 continue
             try:
                 shutil.rmtree(venv_path)
             except (PermissionError, NotADirectoryError):
-                print(f"Cannot delete {venv}, skipping...")
+                self.output(
+                    SGRString(f"Cannot delete {venv}, skipping..."), is_error=True
+                )
                 continue
 
-            print(f"{venv} removed successfully!")
+            self.output(SGRString(f"{venv} removed successfully!"))

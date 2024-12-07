@@ -1,6 +1,8 @@
 from argparse import Namespace
 from typing import TYPE_CHECKING
 
+from pyutilkit.term import SGRString
+
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -15,4 +17,4 @@ class Command(BaseCommand):
     def run(self) -> None:
         for directory in sorted(self.base_dir.glob("*")):
             if directory.is_dir():
-                print(directory.name)
+                self.output(SGRString(directory.name))

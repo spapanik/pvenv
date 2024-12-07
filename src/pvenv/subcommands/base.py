@@ -1,6 +1,7 @@
 import os
 from argparse import Namespace
-from typing import Any
+
+from pyutilkit.term import SGROutput, SGRString
 
 PREFIX = chr(2)
 
@@ -15,7 +16,11 @@ class BaseCommand:
         raise NotImplementedError(msg)
 
     @staticmethod
-    def print(*args: str, **kwargs: Any) -> None:
+    def print(*args: str) -> None:
         if not os.getenv("PVENV_DEBUG"):
             args = tuple(f"{PREFIX}{arg}" for arg in args)
-        print(*args, **kwargs)
+        print(*args)  # noqa: T201
+
+    @staticmethod
+    def output(*args: SGRString, is_error: bool = False) -> None:
+        SGROutput(args, is_error=is_error).print(sep=os.linesep)

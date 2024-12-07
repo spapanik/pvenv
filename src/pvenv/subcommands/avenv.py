@@ -35,7 +35,7 @@ class Command(BaseCommand):
                     self.print(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
-                new_environment: dict[str, Any] = {}
+                new_environment: dict[str, Any] = {}  # type: ignore[misc]
                 with environment.open() as file:
                     for line in file:
                         new_environment.update(ConfigParser([line.strip()]).data)
