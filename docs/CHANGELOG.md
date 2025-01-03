@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ### Fixed
 
+-   Fixed an env var that couldn't be handled by windows
 -   Fixed the minimum python version is set to 3.9
 
 ## [2.0.0] - 2024-07-23

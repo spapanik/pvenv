@@ -16,10 +16,10 @@ class Command(BaseCommand):
 
         self.print(f"unset {self._prefix}")
         prefix_size = len(self._prefix) + 1
-        unset_prefix_size = len(self._prefix) + len("_unset") + 1
+        unset_prefix_size = len(self._prefix) + len("_UNSET") + 1
         for key, value in os.environ.items():
             if key.startswith(f"{self._prefix}_"):
-                if key.startswith(f"{self._prefix}_unset_"):
+                if key.startswith(f"{self._prefix}_UNSET_"):
                     self.print(f"unset {key[unset_prefix_size:]}")
                 else:
                     self.print(f"export {key[prefix_size:]}={value}")

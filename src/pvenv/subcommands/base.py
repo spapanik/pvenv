@@ -10,7 +10,7 @@ class BaseCommand:
     __slots__ = ("_prefix",)
 
     def __init__(self, _options: Namespace) -> None:
-        self._prefix = "_pvenv_env"
+        self._prefix = "_PVENV_ENV"
 
     def run(self) -> None:
         raise NotImplementedError
