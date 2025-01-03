@@ -38,7 +38,7 @@ class Command(BaseCommand):
                 new_environment: dict[str, Any] = {}  # type: ignore[misc]
                 with environment.open() as file:
                     for line in file:
-                        new_environment.update(ConfigParser([line.strip()]).data)
+                        new_environment |= ConfigParser([line.strip()]).data
                 environment_string = " ".join(
                     f"{key}={value}" for key, value in new_environment.items()
                 )
