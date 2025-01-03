@@ -9,15 +9,13 @@ from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
     from argparse import Namespace
-    from pathlib import Path
 
 
 class Command(BaseCommand):
-    __slots__ = ("base_dir", "venv_to_remove")
+    __slots__ = ("venv_to_remove",)
 
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
-        self.base_dir: Path = options.base_dir
         self.venv_to_remove: list[str] = options.venvs_to_remove
 
     def run(self) -> None:

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 from typing import TYPE_CHECKING
 
 from pvenv.subcommands.base import BaseCommand
@@ -15,7 +16,7 @@ class Command(BaseCommand):
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.env_vars: list[str] = options.env_vars
-        self.files = options.files
+        self.files: list[Path] = [Path(file).resolve() for file in options.files]
 
     @staticmethod
     def parse_env_var(line: str) -> list[str]:

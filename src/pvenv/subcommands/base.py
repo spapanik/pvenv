@@ -7,15 +7,18 @@ from pyutilkit.term import SGROutput, SGRString
 
 if TYPE_CHECKING:
     from argparse import Namespace
+    from pathlib import Path
 
 PREFIX = chr(2)
 
 
 class BaseCommand:
-    __slots__ = ("_prefix",)
+    __slots__ = ("_prefix", "base_dir", "verbosity")
 
-    def __init__(self, _options: Namespace) -> None:
+    def __init__(self, options: Namespace) -> None:
         self._prefix = "_PVENV_ENV"
+        self.base_dir: Path = options.base_dir
+        self.verbosity: int = options.verbosity
 
     def run(self) -> None:
         raise NotImplementedError
