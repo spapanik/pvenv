@@ -5,6 +5,8 @@ from pvenv.subcommands.base import BaseCommand
 
 
 class Command(BaseCommand):
+    __slots__ = ()
+
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
 

@@ -13,6 +13,8 @@ DEV_NULL = Path(os.devnull)
 
 
 class Command(BaseCommand):
+    __slots__ = ("base_dir", "environments", "project", "python", "venv")
+
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.base_dir: Path = options.base_dir

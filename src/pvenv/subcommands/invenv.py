@@ -10,6 +10,8 @@ if TYPE_CHECKING:
 
 
 class Command(BaseCommand):
+    __slots__ = ("env_vars", "files")
+
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.env_vars: list[str] = options.env_vars
