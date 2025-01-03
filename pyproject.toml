@@ -160,8 +160,9 @@ omit = [
 [tool.coverage.report]
 exclude_also = [
     "if TYPE_CHECKING:",
+    "raise NotImplementedError",
 ]
-fail_under = 20
+fail_under = 50
 precision = 2
 show_missing = true
 skip_covered = true

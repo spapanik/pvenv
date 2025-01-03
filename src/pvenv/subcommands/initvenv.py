@@ -17,8 +17,9 @@ class Command(BaseCommand):
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
 
-    def shell_script(self) -> Path:
-        return Path(__file__).parent.joinpath("scripts/pvenv.sh").absolute()
+    @staticmethod
+    def shell_script() -> Path:
+        return Path(__file__).parents[1].joinpath("scripts/pvenv.sh").resolve()
 
     def run(self) -> None:
         SGRString("Add the following line to your shell rc:").print()

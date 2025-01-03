@@ -24,6 +24,6 @@ def main() -> None:
         module = subcommands.lsvenv
     elif args.subcommand == "make":
         module = subcommands.mkvenv
-    elif args.subcommand == "rm":
+    elif args.subcommand == "rm":  # pragma: no branch
         module = subcommands.rmvenv
     module.Command(args).run()
