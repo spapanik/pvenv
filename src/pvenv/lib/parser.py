@@ -32,6 +32,12 @@ def parse_args() -> Namespace:
         "base_dir", action="store_const", const=get_default_base()
     )
     parent_parser.add_argument(
+        "-d",
+        "--dry-run",
+        action="store_true",
+        help="only print the commands to be executed",
+    )
+    parent_parser.add_argument(
         "-v",
         "--verbose",
         action="count",

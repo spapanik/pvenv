@@ -19,4 +19,4 @@ class Command(BaseCommand):
     def run(self) -> None:
         for directory in sorted(self.base_dir.glob("*")):
             if directory.is_dir():
-                self.output(SGRString(directory.name))
+                SGRString(directory.name).print()

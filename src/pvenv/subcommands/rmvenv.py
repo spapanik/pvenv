@@ -22,16 +22,12 @@ class Command(BaseCommand):
         for venv in self.venv_to_remove:
             venv_path = self.base_dir.joinpath(venv)
             if not venv_path.exists():
-                self.output(
-                    SGRString(f"{venv} does not exist, skipping..."), is_error=True
-                )
+                SGRString(f"{venv} does not exist, skipping...", is_error=True).print()
                 continue
             try:
                 shutil.rmtree(venv_path)
             except (PermissionError, NotADirectoryError):
-                self.output(
-                    SGRString(f"Cannot delete {venv}, skipping..."), is_error=True
-                )
+                SGRString(f"Cannot delete {venv}, skipping...", is_error=True).print()
                 continue
 
-            self.output(SGRString(f"{venv} removed successfully!"))
+            SGRString(f"{venv} removed successfully!")

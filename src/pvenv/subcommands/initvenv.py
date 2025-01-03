@@ -21,7 +21,5 @@ class Command(BaseCommand):
         return Path(__file__).parent.joinpath("scripts/pvenv.sh").absolute()
 
     def run(self) -> None:
-        self.output(
-            SGRString("Add the following line to your shell rc:"),
-            SGRString(f". {self.shell_script()}"),
-        )
+        SGRString("Add the following line to your shell rc:").print()
+        SGRString(f". {self.shell_script()}").print()
