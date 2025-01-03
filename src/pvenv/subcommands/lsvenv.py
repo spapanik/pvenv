@@ -1,4 +1,5 @@
-from argparse import Namespace
+from __future__ import annotations
+
 from typing import TYPE_CHECKING
 
 from pyutilkit.term import SGRString
@@ -6,6 +7,7 @@ from pyutilkit.term import SGRString
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
+    from argparse import Namespace
     from pathlib import Path
 
 

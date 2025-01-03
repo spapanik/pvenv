@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 import os
-from argparse import Namespace
+from typing import TYPE_CHECKING
 
 from pvenv.subcommands.base import BaseCommand
+
+if TYPE_CHECKING:
+    from argparse import Namespace
 
 
 class Command(BaseCommand):
