@@ -19,14 +19,9 @@ class Command(BaseCommand):
         self.venv: str = options.venv
         self.python: str = options.python
         self.project: Path = Path(options.project).absolute()
-        self.environments: list[Path] = self._get_environments()
+        self.environments: list[Path] = self._get_environments(options.environments)
 
-    def _get_project(self) -> Path:
-        project = self._options.project
-        return Path(project).absolute() if project else DEV_NULL
-
-    def _get_environments(self) -> list[Path]:
-        environments = self._options.environments
+    def _get_environments(self, environments: list[str]) -> list[Path]:
         if self.project == DEV_NULL and environments:
             msg = "Cannot set environ in independent"
             raise RuntimeError(msg)

@@ -7,9 +7,8 @@ PREFIX = chr(2)
 
 
 class BaseCommand:
-    def __init__(self, options: Namespace) -> None:
+    def __init__(self, _options: Namespace) -> None:
         self._prefix = "_pvenv_env"
-        self._options = options
 
     def run(self) -> None:
         msg = f"{self.__class__.__name__} must implement run"
