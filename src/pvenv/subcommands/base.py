@@ -13,8 +13,7 @@ class BaseCommand:
         self._prefix = "_pvenv_env"
 
     def run(self) -> None:
-        msg = f"{self.__class__.__name__} must implement run"
-        raise NotImplementedError(msg)
+        raise NotImplementedError
 
     @staticmethod
     def print(*args: str) -> None:
