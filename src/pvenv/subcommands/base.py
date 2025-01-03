@@ -1,7 +1,12 @@
+from __future__ import annotations
+
 import os
-from argparse import Namespace
+from typing import TYPE_CHECKING
 
 from pyutilkit.term import SGROutput, SGRString
+
+if TYPE_CHECKING:
+    from argparse import Namespace
 
 PREFIX = chr(2)
 
