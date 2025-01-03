@@ -9,15 +9,13 @@ from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
     from argparse import Namespace
-    from pathlib import Path
 
 
 class Command(BaseCommand):
-    __slots__ = ("base_dir", "cd", "venv")
+    __slots__ = ("cd", "venv")
 
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
-        self.base_dir: Path = options.base_dir
         self.venv: str = options.venv
         self.cd: bool = options.cd
 
