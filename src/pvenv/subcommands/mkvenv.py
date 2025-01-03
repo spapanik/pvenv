@@ -35,22 +35,22 @@ class Command(BaseCommand):
             raise RuntimeError(msg)
 
         if self.python == "current":
-            self.print(f"python -m venv {venv_path}")
+            self.execute(f"python -m venv {venv_path}")
         elif self.python:
-            self.print(f"pyenv shell {self.python}")
-            self.print(f"python -m venv {venv_path}")
+            self.execute(f"pyenv shell {self.python}")
+            self.execute(f"python -m venv {venv_path}")
         else:
-            self.print(f"mkdir -p {venv_path}")
+            self.execute(f"mkdir -p {venv_path}")
 
         if self.project != DEV_NULL:
-            self.print(f"echo {self.project} > {venv_path}/.project")
+            self.execute(f"echo {self.project} > {venv_path}/.project")
 
         for i, environment in enumerate(self.environments):
             if i == 0:
-                self.print(f": > {venv_path}/.environment")
-            self.print(f"echo {environment} >> {venv_path}/.environment")
+                self.execute(f": > {venv_path}/.environment")
+            self.execute(f"echo {environment} >> {venv_path}/.environment")
 
-        self.print(f"avenv {self.venv}")
+        self.execute(f"avenv {self.venv}")
 
         if self.python:
-            self.print("pip install --upgrade pip")
+            self.execute("pip install --upgrade pip")

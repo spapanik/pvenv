@@ -16,7 +16,7 @@ class Command(BaseCommand):
         super().__init__(options)
 
     def run(self) -> None:
-        self.print("outvenv")
-        self.print(f"declare -f deactivate > {os.devnull} && deactivate")
+        self.execute("outvenv")
+        self.execute(f"declare -f deactivate > {os.devnull} && deactivate")
         if os.getenv("VIRTUAL_ENV"):
-            self.print("unset VIRTUAL_ENV")
+            self.execute("unset VIRTUAL_ENV")

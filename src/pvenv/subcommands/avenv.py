@@ -26,13 +26,13 @@ class Command(BaseCommand):
             raise RuntimeError(msg)
 
         if os.getenv("VIRTUAL_ENV"):
-            self.print("dvenv")
+            self.execute("dvenv")
 
         project = venv_path.joinpath(".project")
         if project.exists():
             if self.cd:
                 with project.open() as file:
-                    self.print(f"cd {file.read().strip()}")
+                    self.execute(f"cd {file.read().strip()}")
             environment = venv_path.joinpath(".environment")
             if environment.exists():
                 new_environment: dict[str, Any] = {}  # type: ignore[misc]
@@ -42,10 +42,10 @@ class Command(BaseCommand):
                 environment_string = " ".join(
                     f"{key}={value}" for key, value in new_environment.items()
                 )
-                self.print(f"invenv {environment_string}")
+                self.execute(f"invenv {environment_string}")
 
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():
-            self.print(f". {activate}")
+            self.execute(f". {activate}")
         else:
-            self.print(f"export VIRTUAL_ENV=dummy_{self.venv}")
+            self.execute(f"export VIRTUAL_ENV=dummy_{self.venv}")

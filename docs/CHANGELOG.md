@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Changed
+
+-   Informative printing is handled by dry_run and verbosity
+
 ### Fixed
 
 -   Fixed an env var that couldn't be handled by windows
