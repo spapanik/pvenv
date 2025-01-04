@@ -74,8 +74,9 @@ def parse_args() -> Namespace:
     )
     mkvenv_parser.add_argument("venv", nargs="?", default=Path().absolute().name)
     mkvenv_parser.add_argument("-e", "--environments", action="append", default=[])
+    mkvenv_parser.add_argument("-l", "--legacy-seed", action="store_true")
     mkvenv_parser.add_argument("-P", "--project", default=Path().absolute().as_posix())
-    mkvenv_parser.add_argument("-p", "--python", default="current")
+    mkvenv_parser.add_argument("-p", "--python", default="system")
 
     rmvenv_parser = subparsers.add_parser(
         "rm", help="Remove virtualenvs", parents=[parent_parser]

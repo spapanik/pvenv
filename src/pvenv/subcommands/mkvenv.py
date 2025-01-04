@@ -4,6 +4,8 @@ import os
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from uv import find_uv_bin
+
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -13,12 +15,13 @@ DEV_NULL = Path(os.devnull)
 
 
 class Command(BaseCommand):
-    __slots__ = ("environments", "project", "python", "venv")
+    __slots__ = ("environments", "legacy_seed", "project", "python", "venv")
 
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.venv: str = options.venv
         self.python: str = options.python
+        self.legacy_seed: bool = options.legacy_seed
         self.project: Path = Path(options.project).absolute()
         self.environments: list[Path] = self._get_environments(options.environments)
 
@@ -34,13 +37,18 @@ class Command(BaseCommand):
             msg = f"Venv {self.venv} already exists, aborting..."
             raise RuntimeError(msg)
 
-        if self.python == "current":
-            self.execute(f"python -m venv {venv_path}")
-        elif self.python:
-            self.execute(f"pyenv shell {self.python}")
-            self.execute(f"python -m venv {venv_path}")
-        else:
+        uv_path = find_uv_bin()
+
+        if not self.python:
             self.execute(f"mkdir -p {venv_path}")
+        else:
+            extra_args = []
+            if self.python != "system":
+                extra_args.append(f"--python {self.python}")
+            if self.legacy_seed:
+                extra_args.append("--seed")
+            extra = " ".join(extra_args)
+            self.execute(f"{uv_path} venv --relocatable {extra} {venv_path}")
 
         if self.project != DEV_NULL:
             self.execute(f"echo {self.project} > {venv_path}/.project")
@@ -52,5 +60,5 @@ class Command(BaseCommand):
 
         self.execute(f"avenv {self.venv}")
 
-        if self.python:
-            self.execute("pip install --upgrade pip")
+        if not self.legacy_seed:
+            self.execute(f"{uv_path} pip install --upgrade uv")

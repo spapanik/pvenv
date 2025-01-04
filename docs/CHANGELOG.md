@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Changed
 
 -   Informative printing is handled by dry_run and verbosity
+-   Use uv for creating venvs
 
 ### Fixed
 
