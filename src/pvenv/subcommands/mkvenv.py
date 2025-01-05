@@ -49,6 +49,7 @@ class Command(BaseCommand):
                 extra_args.append("--seed")
             extra = " ".join(extra_args)
             self.execute(f"{uv_path} venv --relocatable {extra} {venv_path}")
+            self.execute(f"echo {self.python} > {venv_path}/.python")
 
         if self.project != DEV_NULL:
             self.execute(f"echo {self.project} > {venv_path}/.project")
