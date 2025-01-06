@@ -5,7 +5,7 @@
 [![tests][test_badge]][test_url]
 [![license][licence_badge]][licence_url]
 [![codecov][codecov_badge]][codecov_url]
-[![readthedocs][readthedocs_badge]][Documentation]
+[![readthedocs][readthedocs_badge]][readthedocs_url]
 [![pypi][pypi_badge]][pypi_url]
 [![downloads][pepy_badge]][pepy_url]
 [![code style: black][black_badge]][black_url]
@@ -33,7 +33,8 @@ upon activation.
 [licence_url]: https://p-venv.readthedocs.io/en/stable/LICENSE/
 [codecov_badge]: https://codecov.io/github/spapanik/pvenv/graph/badge.svg?token=Q20F84BW72
 [codecov_url]: https://codecov.io/github/spapanik/pvenv
-[readthedocs_badge]: https://readthedocs.org/projects/p-venv/badge/?version=stable
+[readthedocs_badge]: https://readthedocs.org/projects/p-venv/badge/?version=latest
+[readthedocs_url]: https://p-venv.readthedocs.io/en/latest/
 [pypi_badge]: https://img.shields.io/pypi/v/pvenv
 [pypi_url]: https://pypi.org/project/pvenv
 [pepy_badge]: https://pepy.tech/badge/pvenv
