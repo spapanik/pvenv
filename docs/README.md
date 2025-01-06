@@ -12,7 +12,11 @@
 [![build automation: yam][yam_badge]][yam_url]
 [![Lint: ruff][ruff_badge]][ruff_url]
 
-`pvenv` provides an easy way to use venvs in python.
+`pvenv` provides an easy way to use virtual environments in python.
+
+Behind the scenes, it uses [uv] to create virtual environments extremely fast. Also, it is inspired from
+[virtualenvwrapper] to move virtual environments outside the directory, and cd to the project directory
+upon activation.
 
 ## Links
 
@@ -40,5 +44,7 @@
 [yam_url]: https://github.com/spapanik/yamk
 [ruff_badge]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json
 [ruff_url]: https://github.com/charliermarsh/ruff
+[uv]: https://docs.astral.sh/uv/
+[virtualenvwrapper]: https://virtualenvwrapper.readthedocs.io/en/stable/
 [Documentation]: https://p-venv.readthedocs.io/en/stable/
 [Changelog]: https://p-venv.readthedocs.io/en/stable/CHANGELOG/
