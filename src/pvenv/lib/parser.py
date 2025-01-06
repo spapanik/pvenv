@@ -1,6 +1,6 @@
 import os
 import sys
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser, BooleanOptionalAction, Namespace
 from pathlib import Path
 
 from pvenv.__version__ import __version__
@@ -74,9 +74,10 @@ def parse_args() -> Namespace:
     )
     mkvenv_parser.add_argument("venv", nargs="?", default=Path().absolute().name)
     mkvenv_parser.add_argument("-e", "--environments", action="append", default=[])
-    mkvenv_parser.add_argument("-l", "--legacy-seed", action="store_true")
     mkvenv_parser.add_argument("-P", "--project", default=Path().absolute().as_posix())
     mkvenv_parser.add_argument("-p", "--python", default="system")
+    mkvenv_parser.add_argument("--legacy-seed", action=BooleanOptionalAction)
+    mkvenv_parser.add_argument("--seed", action=BooleanOptionalAction)
 
     rmvenv_parser = subparsers.add_parser(
         "rm", help="Remove virtualenvs", parents=[parent_parser]

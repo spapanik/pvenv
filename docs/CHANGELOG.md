@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Added
+
+-   Allow choosing seed type
+
 ## [3.0.0] - 2025-01-05
 
 ### Changed

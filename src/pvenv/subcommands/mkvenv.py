@@ -15,13 +15,14 @@ DEV_NULL = Path(os.devnull)
 
 
 class Command(BaseCommand):
-    __slots__ = ("environments", "legacy_seed", "project", "python", "venv")
+    __slots__ = ("environments", "legacy_seed", "project", "python", "seed", "venv")
 
     def __init__(self, options: Namespace) -> None:
         super().__init__(options)
         self.venv: str = options.venv
         self.python: str = options.python
         self.legacy_seed: bool = options.legacy_seed
+        self.seed: bool = options.seed
         self.project: Path = Path(options.project).absolute()
         self.environments: list[Path] = self._get_environments(options.environments)
 
@@ -61,5 +62,5 @@ class Command(BaseCommand):
 
         self.execute(f"avenv {self.venv}")
 
-        if not self.legacy_seed:
+        if self.seed:
             self.execute(f"{uv_path} pip install --upgrade uv")
