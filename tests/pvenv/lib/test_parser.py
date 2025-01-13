@@ -2,7 +2,7 @@ from unittest import mock
 
 import pytest
 
-from pvenv.lib.parser import parse_args
+from pvenv.lib.cli import parse_args
 
 
 @pytest.mark.parametrize(

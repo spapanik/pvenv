@@ -1,7 +1,7 @@
 from typing import TYPE_CHECKING
 
 from pvenv import subcommands
-from pvenv.lib.parser import parse_args
+from pvenv.lib.cli import parse_args
 
 if TYPE_CHECKING:
     from types import ModuleType

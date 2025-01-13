@@ -154,7 +154,7 @@ source = [
 ]
 data_file = ".cov_cache/coverage.dat"
 omit = [
-    "src/pvenv/lib/types.py",
+    "src/pvenv/lib/type_defs.py",
 ]
 
 [tool.coverage.report]
