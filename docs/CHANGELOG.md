@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+## [3.2.0] - 2025-01-13
+
 ### Added
 
 -   Export `UV_PROJECT_ENVIRONMENT` to help using uv
@@ -98,7 +100,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[Unreleased]: https://github.com/spapanik/pvenv/compare/v3.1.0...main
+[Unreleased]: https://github.com/spapanik/pvenv/compare/v3.2.0...main
+[3.2.0]: https://github.com/spapanik/pvenv/compare/v3.1.0...v3.2.0
 [3.1.0]: https://github.com/spapanik/pvenv/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/spapanik/pvenv/compare/v2.0.0...v3.0.0
 [2.0.0]: https://github.com/spapanik/pvenv/compare/v1.0.0...v2.0.0
