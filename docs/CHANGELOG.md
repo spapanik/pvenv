@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Added
+
+-   Export `UV_PROJECT_ENVIRONMENT` to help using uv
+
 ## [3.1.0] - 2025-01-06
 
 ### Added

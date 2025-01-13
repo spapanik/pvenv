@@ -47,5 +47,6 @@ class Command(BaseCommand):
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():
             self.execute(f". {activate}")
+            self.execute(f"invenv UV_PROJECT_ENVIRONMENT={venv_path}")
         else:
             self.execute(f"export VIRTUAL_ENV=dummy_{self.venv}")
