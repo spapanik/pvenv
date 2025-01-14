@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Fixed
+
+-   Fixed unsetting env vars
+
 ## [3.2.0] - 2025-01-13
 
 ### Added
