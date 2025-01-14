@@ -4,18 +4,17 @@ from typing import TYPE_CHECKING
 
 from pyutilkit.term import SGRString
 
+from pvenv.lib.constants import SHELL_PREFIX
+
 if TYPE_CHECKING:
     from argparse import Namespace
     from pathlib import Path
 
-PREFIX = chr(2)
-
 
 class BaseCommand:
-    __slots__ = ("_prefix", "base_dir", "dry_run", "verbosity")
+    __slots__ = ("base_dir", "dry_run", "verbosity")
 
     def __init__(self, options: Namespace) -> None:
-        self._prefix = "_PVENV_ENV"
         self.base_dir: Path = options.base_dir
         self.dry_run: bool = options.dry_run
         self.verbosity: int = options.verbosity
@@ -28,4 +27,4 @@ class BaseCommand:
             SGRString(command).print()
 
         if not self.dry_run:
-            SGRString(command, prefix=PREFIX, force_prefix=True).print()
+            SGRString(command, prefix=SHELL_PREFIX, force_prefix=True).print()

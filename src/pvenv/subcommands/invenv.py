@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from pvenv.lib.constants import ENV_VAR_PREFIX, UNSET_ID
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -36,13 +37,13 @@ class Command(BaseCommand):
             new_vars[key] = value
 
         if new_vars:
-            if self._prefix in os.environ:
+            if ENV_VAR_PREFIX in os.environ:
                 msg = "Already in a venv, aborting..."
                 raise RuntimeError(msg)
-            self.execute(f"export {self._prefix}=true")
+            self.execute(f"export {ENV_VAR_PREFIX}=true")
         for key, value in new_vars.items():
             if key in os.environ:
-                self.execute(f"export {self._prefix}_{key}={os.getenv(key, '')}")
+                self.execute(f"export {ENV_VAR_PREFIX}_{key}={os.getenv(key, '')}")
             else:
-                self.execute(f"export {self._prefix}_UNSET_{key}=")
+                self.execute(f"export {ENV_VAR_PREFIX}_{UNSET_ID}_{key}=")
             self.execute(f"export {key}={value}")

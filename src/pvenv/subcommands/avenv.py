@@ -5,6 +5,7 @@ from typing import TYPE_CHECKING, Any
 
 from dj_settings import ConfigParser
 
+from pvenv.lib.constants import UV_VENV_ENV_VAR, VENV_ENV_VAR
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -25,7 +26,7 @@ class Command(BaseCommand):
             msg = f"Venv {self.venv} doesn't exist, aborting..."
             raise RuntimeError(msg)
 
-        if os.getenv("VIRTUAL_ENV"):
+        if os.getenv(VENV_ENV_VAR):
             self.execute("dvenv")
 
         project = venv_path.joinpath(".project")
@@ -47,6 +48,6 @@ class Command(BaseCommand):
         activate = venv_path.joinpath("bin/activate")
         if activate.exists():
             self.execute(f". {activate}")
-            self.execute(f"invenv UV_PROJECT_ENVIRONMENT={venv_path}")
+            self.execute(f"invenv {UV_VENV_ENV_VAR}={venv_path}")
         else:
-            self.execute(f"export VIRTUAL_ENV=dummy_{self.venv}")
+            self.execute(f"export {VENV_ENV_VAR}=dummy")

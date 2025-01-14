@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 from typing import TYPE_CHECKING
 
+from pvenv.lib.constants import VENV_ENV_VAR
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
@@ -16,7 +17,7 @@ class Command(BaseCommand):
         super().__init__(options)
 
     def run(self) -> None:
-        self.execute("outvenv")
+        self.execute("outenv")
         self.execute(f"declare -f deactivate > {os.devnull} && deactivate")
-        if os.getenv("VIRTUAL_ENV"):
-            self.execute("unset VIRTUAL_ENV")
+        if os.getenv(VENV_ENV_VAR):
+            self.execute(f"unset {VENV_ENV_VAR}")
