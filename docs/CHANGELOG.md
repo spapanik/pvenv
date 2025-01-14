@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Fixed
 
 -   Fixed unsetting env vars
+-   Fixed activating venv with env vars
 
 ## [3.2.0] - 2025-01-13
 
