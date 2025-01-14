@@ -44,5 +44,5 @@ class Command(BaseCommand):
             if key in os.environ:
                 self.execute(f"export {self._prefix}_{key}={os.getenv(key, '')}")
             else:
-                self.execute(f"export {self._prefix}_unset_{key}=")
+                self.execute(f"export {self._prefix}_UNSET_{key}=")
             self.execute(f"export {key}={value}")
