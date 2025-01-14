@@ -17,4 +17,4 @@ class Command(BaseCommand):
 
     def run(self) -> None:
         self.execute(f"declare -f deactivate > {os.devnull} && deactivate")
-        self.execute("outenv")
+        self.execute("outvenv")

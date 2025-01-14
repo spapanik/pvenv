@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Fixed
+
+-   Fixed dvenv
+
 ## [3.2.1] - 2025-01-14
 
 ### Fixed
