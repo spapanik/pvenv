@@ -24,6 +24,10 @@ class Command(BaseCommand):
         return line.split("=", maxsplit=1)
 
     def run(self) -> None:
+        if ENV_VAR_PREFIX in os.environ:
+            msg = "Already in a venv, aborting..."
+            raise RuntimeError(msg)
+
         new_vars = {}
         for file in self.files:
             with file.open() as f:
@@ -37,9 +41,6 @@ class Command(BaseCommand):
             new_vars[key] = value
 
         if new_vars:
-            if ENV_VAR_PREFIX in os.environ:
-                msg = "Already in a venv, aborting..."
-                raise RuntimeError(msg)
             self.execute(f"export {ENV_VAR_PREFIX}=true")
         for key, value in new_vars.items():
             if key in os.environ:
