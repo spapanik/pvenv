@@ -29,7 +29,7 @@ classifiers = [
     "Topic :: Software Development :: User Interfaces",
 ]
 
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
     "dj_settings~=6.0",
     "pyutilkit~=0.10",
@@ -47,7 +47,7 @@ pvenv = "pvenv.__main__:main"
 [dependency-groups]
 dev = [
     "ipdb~=0.13",
-    "ipython~=8.18",
+    "ipython~=9.0",
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "docs" },
@@ -107,7 +107,7 @@ disallow_any_decorated = false # mock.MagicMock is Any
 src = [
     "src",
 ]
-target-version = "py39"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = [
