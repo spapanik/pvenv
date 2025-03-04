@@ -41,7 +41,7 @@ class Command(BaseCommand):
                     for line in file:
                         new_environment |= ConfigParser([line.strip()]).data
 
-        self.execute(f'. {venv_path.joinpath("bin", "activate")}')
+        self.execute(f". {venv_path.joinpath('bin', 'activate')}")
         environment_string = " ".join(
             f"{key}={value}" for key, value in new_environment.items()
         )
