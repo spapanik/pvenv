@@ -10,16 +10,16 @@ A utility to manage virtual environments
 
 Subcommands: {activate,deactivate,list,make,rm}
 
--   activate (aliased to `avenv`)
-    Activate a venv
--   deactivate (aliased to `dvenv`)
-    Deactivate a venv
--   list (aliased to `lsvenv`)
-    List venvs
--   make (aliased to `mkvenv`)
-    Make a new venv
--   rm (aliased to `rmvenv`)
-    Remove virtualenvs
+- activate (aliased to `avenv`)
+  Activate a venv
+- deactivate (aliased to `dvenv`)
+  Deactivate a venv
+- list (aliased to `lsvenv`)
+  List venvs
+- make (aliased to `mkvenv`)
+  Make a new venv
+- rm (aliased to `rmvenv`)
+  Remove virtualenvs
 
 options:
 
