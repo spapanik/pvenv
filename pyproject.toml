@@ -53,7 +53,7 @@ dev = [
     { include-group = "docs" },
 ]
 lint = [
-    "mypy~=1.16",
+    "ty~=0.0.1a20",
     "ruff~=0.12",
     { include-group = "test_core" },
 ]
@@ -76,6 +76,7 @@ docs = [
 version = { file = "src/pvenv/__version__.py" }
 
 [tool.mypy]
+# Keep mypy for CI/CD
 check_untyped_defs = true
 disallow_any_decorated = true
 disallow_any_explicit = true
@@ -100,6 +101,7 @@ warn_unused_ignores = true
 warn_unreachable = true
 
 [[tool.mypy.overrides]]
+# Keep mypy for CI/CD
 module = "tests.*"
 disallow_any_decorated = false # mock.MagicMock is Any
 
