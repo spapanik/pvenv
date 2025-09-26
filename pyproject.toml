@@ -33,7 +33,7 @@ requires-python = ">=3.10"
 dependencies = [
     "dj_settings~=8.0",
     "pyutilkit~=0.10",
-    "uv~=0.7"
+    "uv~=0.8"
 ]
 
 [project.urls]
@@ -48,17 +48,19 @@ pvenv = "pvenv.__main__:main"
 dev = [
     "ipdb~=0.13",
     "ipython~=8.37",
+    "ptpython~=3.0",
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "docs" },
 ]
 lint = [
-    "ty~=0.0.1a20",
-    "ruff~=0.12",
+    "mypy~=1.18",  # Keep mypy for CI/CD
+    "ty~=0.0.1a21",
+    "ruff~=0.13",
     { include-group = "test_core" },
 ]
 test = [
-    "pytest-cov~=6.2",
+    "pytest-cov~=7.0",
     { include-group = "test_core" },
 ]
 test_core = [
