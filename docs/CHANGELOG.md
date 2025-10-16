@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+## [3.2.3] - 2025-10-17
+
 ### Fixed
 
 - Fixed deprecation of store_const being used as a positional argument
@@ -117,7 +119,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[Unreleased]: https://github.com/spapanik/pvenv/compare/v3.2.2...main
+[Unreleased]: https://github.com/spapanik/pvenv/compare/v3.2.3...main
+[3.2.3]: https://github.com/spapanik/pvenv/compare/v3.2.2...v3.2.3
 [3.2.2]: https://github.com/spapanik/pvenv/compare/v3.2.1...v3.2.2
 [3.2.1]: https://github.com/spapanik/pvenv/compare/v3.2.0...v3.2.1
 [3.2.0]: https://github.com/spapanik/pvenv/compare/v3.1.0...v3.2.0
