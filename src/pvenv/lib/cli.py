@@ -1,6 +1,6 @@
 import os
 import sys
-from argparse import ArgumentParser, BooleanOptionalAction, Namespace
+from argparse import SUPPRESS, ArgumentParser, BooleanOptionalAction, Namespace
 from pathlib import Path
 
 from pvenv.__version__ import __version__
@@ -27,9 +27,14 @@ def parse_args() -> Namespace:
         help="print the version and exit",
     )
 
+    default_base = get_default_base()
     parent_parser = ArgumentParser(add_help=False)
     parent_parser.add_argument(
-        "base_dir", action="store_const", const=get_default_base()
+        "--base_dir",
+        action="store_const",
+        const=default_base,
+        default=default_base,
+        help=SUPPRESS,
     )
     parent_parser.add_argument(
         "-d",

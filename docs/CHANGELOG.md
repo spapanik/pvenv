@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Fixed
+
+-   Fixed deprecation of store_const being used as a positional argument
+
 ## [3.2.2] - 2025-01-14
 
 ### Fixed
