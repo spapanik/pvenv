@@ -64,7 +64,7 @@ test = [
     { include-group = "test_core" },
 ]
 test_core = [
-    "pytest~=8.4",
+    "pytest~=9.0",
 ]
 docs = [
     "mkdocs~=1.6",
@@ -74,8 +74,8 @@ docs = [
     "pymdown-extensions~=10.15",
 ]
 
-[tool.phosphorus.dynamic]
-version = { file = "src/pvenv/__version__.py" }
+[tool.phosphorus.dynamic.version]
+file = "src/pvenv/__version__.py"
 
 [tool.mypy]
 # Keep mypy for CI/CD
@@ -147,9 +147,13 @@ forced-separate = [
 ]
 split-on-trailing-comma = false
 
-[tool.pytest.ini_options]
-addopts = "-ra -v"
-testpaths = "tests"
+[tool.pytest]
+minversion = "9.0"
+strict = true
+addopts = ["-ra", "-v"]
+testpaths = [
+    "tests",
+]
 
 [tool.coverage.run]
 branch = true
@@ -158,7 +162,7 @@ source = [
 ]
 data_file = ".cov_cache/coverage.dat"
 omit = [
-    "src/pvenv/lib/type_defs.py",
+    "src/**/type_defs.py",
 ]
 
 [tool.coverage.report]
