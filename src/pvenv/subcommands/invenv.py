@@ -2,22 +2,26 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 from pvenv.lib.constants import ENV_VAR_PREFIX, UNSET_ID
 from pvenv.subcommands.base import BaseCommand
-
-if TYPE_CHECKING:
-    from argparse import Namespace
 
 
 class Command(BaseCommand):
     __slots__ = ("env_vars", "files")
 
-    def __init__(self, options: Namespace) -> None:
-        super().__init__(options)
-        self.env_vars: list[str] = options.env_vars
-        self.files: list[Path] = [Path(file).resolve() for file in options.files]
+    def __init__(
+        self,
+        base_dir: Path,
+        *,
+        dry_run: bool,
+        verbosity: int,
+        env_vars: list[str],
+        files: list[str],
+    ) -> None:
+        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        self.env_vars: list[str] = env_vars
+        self.files: list[Path] = [Path(file).resolve() for file in files]
 
     @staticmethod
     def parse_env_var(line: str) -> list[str]:

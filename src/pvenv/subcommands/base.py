@@ -7,17 +7,18 @@ from pyutilkit.term import SGRString
 from pvenv.lib.constants import SHELL_PREFIX
 
 if TYPE_CHECKING:
-    from argparse import Namespace
     from pathlib import Path
 
 
 class BaseCommand:
     __slots__ = ("base_dir", "dry_run", "verbosity")
 
-    def __init__(self, options: Namespace) -> None:
-        self.base_dir: Path = options.base_dir
-        self.dry_run: bool = options.dry_run
-        self.verbosity: int = options.verbosity
+    def __init__(
+        self, base_dir: Path, *, dry_run: bool, verbosity: int, **_kwargs: object
+    ) -> None:
+        self.base_dir: Path = base_dir
+        self.dry_run: bool = dry_run
+        self.verbosity: int = verbosity
 
     def run(self) -> None:
         raise NotImplementedError

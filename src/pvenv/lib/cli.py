@@ -1,11 +1,162 @@
+from __future__ import annotations
+
 import os
 import sys
 from argparse import SUPPRESS, ArgumentParser, BooleanOptionalAction, Namespace
+from dataclasses import dataclass
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from pvenv.__version__ import __version__
 
+if TYPE_CHECKING:
+    from typing_extensions import Self  # upgrade: py3.10: import from typing
+
 sys.tracebacklimit = 0
+
+
+@dataclass(frozen=True, slots=True)
+class OutCliArgs:
+    @classmethod
+    def from_args(cls, _args: Namespace, /) -> Self:
+        return cls()
+
+
+@dataclass(frozen=True, slots=True)
+class ListCliArgs:
+    @classmethod
+    def from_args(cls, _args: Namespace, /) -> Self:
+        return cls()
+
+
+@dataclass(frozen=True, slots=True)
+class InitCliArgs:
+    @classmethod
+    def from_args(cls, _args: Namespace, /) -> Self:
+        return cls()
+
+
+@dataclass(frozen=True, slots=True)
+class DeactivateCliArgs:
+    @classmethod
+    def from_args(cls, _args: Namespace, /) -> Self:
+        return cls()
+
+
+@dataclass(frozen=True, slots=True)
+class InCliArgs:
+    env_vars: list[str]
+    files: list[str]
+
+    @classmethod
+    def from_args(cls, args: Namespace, /) -> Self:
+        return cls(
+            env_vars=args.env_vars,
+            files=args.files,
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class ActivateCliArgs:
+    venv: str
+    cd: bool
+
+    @classmethod
+    def from_args(cls, args: Namespace, /) -> Self:
+        return cls(
+            venv=args.venv,
+            cd=args.cd,
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class MakeCliArgs:
+    venv: str
+    environments: list[str]
+    project: str
+    python: str
+    legacy_seed: bool | None
+    seed: bool | None
+
+    @classmethod
+    def from_args(cls, args: Namespace, /) -> Self:
+        return cls(
+            venv=args.venv,
+            environments=args.environments,
+            project=args.project,
+            python=args.python,
+            legacy_seed=args.legacy_seed,
+            seed=args.seed,
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class RmCliArgs:
+    venvs_to_remove: list[str]
+
+    @classmethod
+    def from_args(cls, args: Namespace, /) -> Self:
+        return cls(
+            venvs_to_remove=args.venvs_to_remove,
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class CliArgs:
+    base_dir: Path
+    dry_run: bool
+    verbosity: int
+    out_subcommand: OutCliArgs | None
+    list_subcommand: ListCliArgs | None
+    init_subcommand: InitCliArgs | None
+    deactivate_subcommand: DeactivateCliArgs | None
+    in_subcommand: InCliArgs | None
+    activate_subcommand: ActivateCliArgs | None
+    make_subcommand: MakeCliArgs | None
+    rm_subcommand: RmCliArgs | None
+
+    @classmethod
+    def from_args(cls, args: Namespace, /) -> Self:
+        in_subcommand = None
+        init_subcommand = None
+        out_subcommand = None
+        activate_subcommand = None
+        deactivate_subcommand = None
+        list_subcommand = None
+        make_subcommand = None
+        rm_subcommand = None
+
+        match args.subcommand:
+            case "in":
+                in_subcommand = InCliArgs.from_args(args)
+            case "init":
+                init_subcommand = InitCliArgs.from_args(args)
+            case "out":
+                out_subcommand = OutCliArgs.from_args(args)
+            case "activate":
+                activate_subcommand = ActivateCliArgs.from_args(args)
+            case "deactivate":
+                deactivate_subcommand = DeactivateCliArgs.from_args(args)
+            case "list":
+                list_subcommand = ListCliArgs.from_args(args)
+            case "make":
+                make_subcommand = MakeCliArgs.from_args(args)
+            case "rm":
+                rm_subcommand = RmCliArgs.from_args(args)
+
+        return cls(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            out_subcommand=out_subcommand,
+            list_subcommand=list_subcommand,
+            init_subcommand=init_subcommand,
+            deactivate_subcommand=deactivate_subcommand,
+            in_subcommand=in_subcommand,
+            activate_subcommand=activate_subcommand,
+            make_subcommand=make_subcommand,
+            rm_subcommand=rm_subcommand,
+        )
 
 
 def get_default_base() -> Path:
@@ -13,7 +164,7 @@ def get_default_base() -> Path:
     return Path(os.getenv("PVENV_BASE", default)).expanduser().absolute()
 
 
-def parse_args() -> Namespace:
+def parse_args() -> CliArgs:
     parser = ArgumentParser(
         prog="pvenv",
         description="A utility to manage virtual environments",
@@ -93,4 +244,4 @@ def parse_args() -> Namespace:
     if args.verbosity > 0:
         sys.tracebacklimit = 1000
 
-    return args
+    return CliArgs.from_args(args)

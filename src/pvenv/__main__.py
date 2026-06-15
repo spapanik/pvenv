@@ -1,29 +1,64 @@
-from typing import TYPE_CHECKING
+from dataclasses import asdict
 
 from pvenv import subcommands
 from pvenv.lib.cli import parse_args
 
-if TYPE_CHECKING:
-    from types import ModuleType
-
 
 def main() -> None:
     args = parse_args()
-    module: ModuleType
-    if args.subcommand == "in":
-        module = subcommands.invenv
-    elif args.subcommand == "init":
-        module = subcommands.initvenv
-    elif args.subcommand == "out":
-        module = subcommands.outvenv
-    elif args.subcommand == "activate":
-        module = subcommands.avenv
-    elif args.subcommand == "deactivate":
-        module = subcommands.dvenv
-    elif args.subcommand == "list":
-        module = subcommands.lsvenv
-    elif args.subcommand == "make":
-        module = subcommands.mkvenv
-    elif args.subcommand == "rm":  # pragma: no branch
-        module = subcommands.rmvenv
-    module.Command(args).run()
+    if args.in_subcommand is not None:
+        subcommands.invenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.in_subcommand),
+        ).run()
+    elif args.init_subcommand is not None:
+        subcommands.initvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.init_subcommand),
+        ).run()
+    elif args.out_subcommand is not None:
+        subcommands.outvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.out_subcommand),
+        ).run()
+    elif args.activate_subcommand is not None:
+        subcommands.avenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.activate_subcommand),
+        ).run()
+    elif args.deactivate_subcommand is not None:
+        subcommands.dvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.deactivate_subcommand),
+        ).run()
+    elif args.list_subcommand is not None:
+        subcommands.lsvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.list_subcommand),
+        ).run()
+    elif args.make_subcommand is not None:
+        subcommands.mkvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.make_subcommand),
+        ).run()
+    elif args.rm_subcommand is not None:  # pragma: no branch
+        subcommands.rmvenv.Command(
+            base_dir=args.base_dir,
+            dry_run=args.dry_run,
+            verbosity=args.verbosity,
+            **asdict(args.rm_subcommand),
+        ).run()

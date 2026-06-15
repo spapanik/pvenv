@@ -2,14 +2,10 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 from uv import find_uv_bin
 
 from pvenv.subcommands.base import BaseCommand
-
-if TYPE_CHECKING:
-    from argparse import Namespace
 
 DEV_NULL = Path(os.devnull)
 
@@ -17,14 +13,26 @@ DEV_NULL = Path(os.devnull)
 class Command(BaseCommand):
     __slots__ = ("environments", "legacy_seed", "project", "python", "seed", "venv")
 
-    def __init__(self, options: Namespace) -> None:
-        super().__init__(options)
-        self.venv: str = options.venv
-        self.python: str = options.python
-        self.legacy_seed: bool = options.legacy_seed
-        self.seed: bool = options.seed
-        self.project: Path = Path(options.project).absolute()
-        self.environments: list[Path] = self._get_environments(options.environments)
+    def __init__(
+        self,
+        base_dir: Path,
+        *,
+        dry_run: bool,
+        verbosity: int,
+        venv: str,
+        environments: list[str],
+        project: str,
+        python: str,
+        legacy_seed: bool | None,
+        seed: bool | None,
+    ) -> None:
+        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        self.venv: str = venv
+        self.python: str = python
+        self.legacy_seed: bool | None = legacy_seed
+        self.seed: bool | None = seed
+        self.project: Path = Path(project).absolute()
+        self.environments: list[Path] = self._get_environments(environments)
 
     def _get_environments(self, environments: list[str]) -> list[Path]:
         if self.project == DEV_NULL and environments:

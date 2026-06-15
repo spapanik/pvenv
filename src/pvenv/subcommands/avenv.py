@@ -9,16 +9,18 @@ from pvenv.lib.constants import UV_VENV_ENV_VAR, VENV_ENV_VAR
 from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
-    from argparse import Namespace
+    from pathlib import Path
 
 
 class Command(BaseCommand):
     __slots__ = ("cd", "venv")
 
-    def __init__(self, options: Namespace) -> None:
-        super().__init__(options)
-        self.venv: str = options.venv
-        self.cd: bool = options.cd
+    def __init__(
+        self, base_dir: Path, *, dry_run: bool, verbosity: int, venv: str, cd: bool
+    ) -> None:
+        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        self.venv: str = venv
+        self.cd: bool = cd
 
     def run(self) -> None:
         venv_path = self.base_dir.joinpath(self.venv)
