@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [Unreleased]
 
+### Changed
+
+- `invenv` now fails immediately if already inside a venv
+
 ### Removed
 
 - Dropped python 3.9 support
@@ -43,10 +47,15 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 
 ## [3.0.0] - 2025-01-05
 
+### Added
+
+- Added `--dry-run` flag to print commands without executing them
+
 ### Changed
 
 - Informative printing is handled by dry_run and verbosity
 - Use uv for creating venvs
+- Default python for `mkvenv` changed from `current` to `system`
 
 ### Fixed
 
@@ -55,6 +64,10 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 - Fixed the path in pvenv init
 
 ## [2.0.0] - 2024-07-23
+
+### Added
+
+- Added `init` subcommand to print shell initialisation instructions
 
 ### Changed
 
