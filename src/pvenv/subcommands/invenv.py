@@ -12,14 +12,14 @@ class Command(BaseCommand):
 
     def __init__(
         self,
-        base_dir: Path,
+        base_dirs: list[Path],
         *,
         dry_run: bool,
         verbosity: int,
         env_vars: list[str],
         files: list[str],
     ) -> None:
-        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        super().__init__(base_dirs, dry_run=dry_run, verbosity=verbosity)
         self.env_vars: list[str] = env_vars
         self.files: list[Path] = [Path(file).resolve() for file in files]
 

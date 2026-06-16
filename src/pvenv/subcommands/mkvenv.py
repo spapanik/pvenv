@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
     def __init__(
         self,
-        base_dir: Path,
+        base_dirs: list[Path],
         *,
         dry_run: bool,
         verbosity: int,
@@ -26,7 +26,7 @@ class Command(BaseCommand):
         legacy_seed: bool | None,
         seed: bool | None,
     ) -> None:
-        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        super().__init__(base_dirs, dry_run=dry_run, verbosity=verbosity)
         self.venv: str = venv
         self.python: str = python
         self.legacy_seed: bool | None = legacy_seed
@@ -41,7 +41,8 @@ class Command(BaseCommand):
         return [self.project.joinpath(environ) for environ in environments]
 
     def run(self) -> None:
-        venv_path = self.base_dir.joinpath(self.venv)
+        base_dir = self.base_dirs[0]
+        venv_path = base_dir.joinpath(self.venv)
         if venv_path.exists():
             msg = f"Venv {self.venv} already exists, aborting..."
             raise RuntimeError(msg)

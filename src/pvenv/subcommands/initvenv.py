@@ -10,8 +10,8 @@ from pvenv.subcommands.base import BaseCommand
 class Command(BaseCommand):
     __slots__ = ()
 
-    def __init__(self, base_dir: Path, *, dry_run: bool, verbosity: int) -> None:
-        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+    def __init__(self, base_dirs: list[Path], *, dry_run: bool, verbosity: int) -> None:
+        super().__init__(base_dirs, dry_run=dry_run, verbosity=verbosity)
 
     @staticmethod
     def shell_script() -> Path:

@@ -7,7 +7,7 @@ from pvenv.subcommands.base import BaseCommand
 @mock.patch("pvenv.subcommands.base.SGRString")
 def test_execute_dry_run_verbose(mock_string: mock.MagicMock) -> None:
     command = "echo 'Hello, World!'"
-    base = BaseCommand(Path.cwd(), dry_run=True, verbosity=1)
+    base = BaseCommand([Path.cwd()], dry_run=True, verbosity=1)
     base.execute(command)
     expected_calls = [mock.call(command)]
     assert mock_string.call_count == 1
@@ -17,7 +17,7 @@ def test_execute_dry_run_verbose(mock_string: mock.MagicMock) -> None:
 @mock.patch("pvenv.subcommands.base.SGRString")
 def test_execute_dry_run_non_verbose(mock_string: mock.MagicMock) -> None:
     command = "echo 'Hello, World!'"
-    base = BaseCommand(Path.cwd(), dry_run=True, verbosity=0)
+    base = BaseCommand([Path.cwd()], dry_run=True, verbosity=0)
     base.execute(command)
     expected_calls = [mock.call(command)]
     assert mock_string.call_count == 1
@@ -27,7 +27,7 @@ def test_execute_dry_run_non_verbose(mock_string: mock.MagicMock) -> None:
 @mock.patch("pvenv.subcommands.base.SGRString")
 def test_execute_live_run_verbose(mock_string: mock.MagicMock) -> None:
     command = "echo 'Hello, World!'"
-    base = BaseCommand(Path.cwd(), dry_run=False, verbosity=1)
+    base = BaseCommand([Path.cwd()], dry_run=False, verbosity=1)
     base.execute(command)
     expected_calls = [
         mock.call(command),
@@ -40,7 +40,7 @@ def test_execute_live_run_verbose(mock_string: mock.MagicMock) -> None:
 @mock.patch("pvenv.subcommands.base.SGRString")
 def test_execute_live_run_non_verbose(mock_string: mock.MagicMock) -> None:
     command = "echo 'Hello, World!'"
-    base = BaseCommand(Path.cwd(), dry_run=False, verbosity=0)
+    base = BaseCommand([Path.cwd()], dry_run=False, verbosity=0)
     base.execute(command)
     expected_calls = [mock.call(command, prefix=chr(2), force_prefix=True)]
     assert mock_string.call_count == 1

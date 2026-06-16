@@ -103,7 +103,7 @@ class RmCliArgs:
 
 @dataclass(frozen=True, slots=True)
 class CliArgs:
-    base_dir: Path
+    base_dirs: list[Path]
     dry_run: bool
     verbosity: int
     out_subcommand: OutCliArgs | None
@@ -125,6 +125,10 @@ class CliArgs:
         list_subcommand = None
         make_subcommand = None
         rm_subcommand = None
+        legacy_dir = get_legacy_base()
+        base_dirs = [args.base_dir]
+        if legacy_dir != args.base_dir and next(legacy_dir.iterdir(), None) is not None:
+            base_dirs.append(legacy_dir)
 
         match args.subcommand:
             case "in":
@@ -145,7 +149,7 @@ class CliArgs:
                 rm_subcommand = RmCliArgs.from_args(args)
 
         return cls(
-            base_dir=args.base_dir,
+            base_dirs=base_dirs,
             dry_run=args.dry_run,
             verbosity=args.verbosity,
             out_subcommand=out_subcommand,
@@ -160,6 +164,11 @@ class CliArgs:
 
 
 def get_default_base() -> Path:
+    default = "~/.local/share/pvenv/virtualenvs"
+    return Path(os.getenv("PVENV_BASE", default)).expanduser().absolute()
+
+
+def get_legacy_base() -> Path:
     default = "~/.local/share/virtualenvs"
     return Path(os.getenv("PVENV_BASE", default)).expanduser().absolute()
 

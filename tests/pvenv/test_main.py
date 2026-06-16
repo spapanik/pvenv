@@ -27,7 +27,7 @@ def _mock_args(
     rm_subcommand: RmCliArgs | None = None,
 ) -> CliArgs:
     return CliArgs(
-        base_dir=Path.cwd(),
+        base_dirs=[Path.cwd()],
         dry_run=False,
         verbosity=0,
         out_subcommand=out_subcommand,

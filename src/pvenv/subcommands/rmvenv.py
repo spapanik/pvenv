@@ -16,19 +16,20 @@ class Command(BaseCommand):
 
     def __init__(
         self,
-        base_dir: Path,
+        base_dirs: list[Path],
         *,
         dry_run: bool,
         verbosity: int,
         venvs_to_remove: list[str],
     ) -> None:
-        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        super().__init__(base_dirs, dry_run=dry_run, verbosity=verbosity)
         self.venvs_to_remove: list[str] = venvs_to_remove
 
     def run(self) -> None:
         for venv in self.venvs_to_remove:
-            venv_path = self.base_dir.joinpath(venv)
-            if not venv_path.exists():
+            try:
+                venv_path = self.find_venv(venv)
+            except RuntimeError:
                 SGRString(f"{venv} does not exist, skipping...", is_error=True).print()
                 continue
             try:

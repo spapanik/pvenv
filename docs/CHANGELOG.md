@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog], and this project adheres to [Semantic
 ### Changed
 
 - `invenv` now fails immediately if already inside a venv
+- Refactored `base_dir` to `base_dirs` across all subcommands, enabling venv discovery
+  in multiple locations with a `FutureWarning` when found in a legacy location
 
 ### Removed
 

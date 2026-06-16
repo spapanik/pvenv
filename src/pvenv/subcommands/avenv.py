@@ -16,17 +16,20 @@ class Command(BaseCommand):
     __slots__ = ("cd", "venv")
 
     def __init__(
-        self, base_dir: Path, *, dry_run: bool, verbosity: int, venv: str, cd: bool
+        self,
+        base_dirs: list[Path],
+        *,
+        dry_run: bool,
+        verbosity: int,
+        venv: str,
+        cd: bool,
     ) -> None:
-        super().__init__(base_dir, dry_run=dry_run, verbosity=verbosity)
+        super().__init__(base_dirs, dry_run=dry_run, verbosity=verbosity)
         self.venv: str = venv
         self.cd: bool = cd
 
     def run(self) -> None:
-        venv_path = self.base_dir.joinpath(self.venv)
-        if not venv_path.exists():
-            msg = f"Venv {self.venv} doesn't exist, aborting..."
-            raise RuntimeError(msg)
+        venv_path = self.find_venv(self.venv)
 
         if os.getenv(VENV_ENV_VAR):
             self.execute("dvenv")
