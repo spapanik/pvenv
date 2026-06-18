@@ -127,7 +127,11 @@ class CliArgs:
         rm_subcommand = None
         legacy_dir = get_legacy_base()
         base_dirs = [args.base_dir]
-        if legacy_dir != args.base_dir and next(legacy_dir.iterdir(), None) is not None:
+        if (
+            legacy_dir != args.base_dir
+            and legacy_dir.exists()
+            and next(legacy_dir.iterdir(), None) is not None
+        ):
             base_dirs.append(legacy_dir)
 
         match args.subcommand:
