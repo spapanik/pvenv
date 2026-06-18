@@ -6,7 +6,7 @@ build-backend = "uv_build"
 
 [project]
 name = "pvenv"
-version = "3.2.3"
+version = "3.3.0"
 
 authors = [
     { name = "Stephanos Kuma", email = "stephanos@kuma.ai" },
