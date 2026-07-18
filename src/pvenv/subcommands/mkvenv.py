@@ -31,7 +31,10 @@ class Command(BaseCommand):
         self.python: str = python
         self.legacy_seed: bool | None = legacy_seed
         self.seed: bool | None = seed
-        self.project: Path = Path(project).absolute()
+        project_path = Path(project)
+        self.project: Path = (
+            DEV_NULL if project_path == DEV_NULL else project_path.absolute()
+        )
         self.environments: list[Path] = self._get_environments(environments)
 
     def _get_environments(self, environments: list[str]) -> list[Path]:
@@ -59,15 +62,15 @@ class Command(BaseCommand):
                 extra_args.append("--seed")
             extra = " ".join(extra_args)
             self.execute(f"{uv_path} venv --relocatable {extra} {venv_path}")
-            self.execute(f"echo {self.python} > {venv_path}/.python")
+            self.execute(f"echo {self.python} > {venv_path / '.python'}")
 
         if self.project != DEV_NULL:
-            self.execute(f"echo {self.project} > {venv_path}/.project")
+            self.execute(f"echo {self.project} > {venv_path / '.project'}")
 
         for i, environment in enumerate(self.environments):
             if i == 0:
-                self.execute(f": > {venv_path}/.environment")
-            self.execute(f"echo {environment} >> {venv_path}/.environment")
+                self.execute(f": > {venv_path / '.environment'}")
+            self.execute(f"echo {environment} >> {venv_path / '.environment'}")
 
         self.execute(f"avenv {self.venv}")
 

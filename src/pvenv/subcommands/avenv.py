@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import sys
 from typing import TYPE_CHECKING
 
 from dj_settings import ConfigParser
@@ -10,6 +11,8 @@ from pvenv.subcommands.base import BaseCommand
 
 if TYPE_CHECKING:
     from pathlib import Path
+
+SCRIPTS_DIR = "Scripts" if sys.platform == "win32" else "bin"
 
 
 class Command(BaseCommand):
@@ -46,7 +49,7 @@ class Command(BaseCommand):
                     for line in file:
                         new_environment |= ConfigParser([line.strip()]).data
 
-        self.execute(f". {venv_path.joinpath('bin', 'activate')}")
+        self.execute(f". {venv_path.joinpath(SCRIPTS_DIR, 'activate')}")
         environment_string = " ".join(
             f"{key}={value}" for key, value in new_environment.items()
         )

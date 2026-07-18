@@ -1,8 +1,10 @@
+from argparse import Namespace
+from pathlib import Path
 from unittest import mock
 
 import pytest
 
-from pvenv.lib.cli import parse_args
+from pvenv.lib.cli import CliArgs, get_default_base, parse_args
 
 
 @pytest.mark.parametrize(
@@ -48,3 +50,24 @@ def test_pvenv_activate() -> None:
 def test_pvenv_unknown_subcommand() -> None:
     with pytest.raises(SystemExit, match="2"):
         parse_args()
+
+
+def test_pvenv_legacy_base_dir(tmp_path: Path) -> None:
+    legacy_dir = tmp_path / "legacy"
+    legacy_dir.joinpath("venv").mkdir(parents=True)
+    with (
+        mock.patch("sys.argv", ["pvenv", "list"]),
+        mock.patch("pvenv.lib.cli.get_legacy_base", return_value=legacy_dir),
+    ):
+        args = parse_args()
+    assert args.base_dirs == [get_default_base(), legacy_dir]
+
+
+def test_cli_args_without_matching_subcommand(tmp_path: Path) -> None:
+    args = Namespace(
+        subcommand="unknown", base_dir=tmp_path, dry_run=False, verbosity=0
+    )
+    with mock.patch("pvenv.lib.cli.get_legacy_base", return_value=tmp_path):
+        cli_args = CliArgs.from_args(args)
+    assert cli_args.base_dirs == [tmp_path]
+    assert cli_args.rm_subcommand is None
