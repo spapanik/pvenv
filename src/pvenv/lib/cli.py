@@ -5,12 +5,9 @@ import sys
 from argparse import SUPPRESS, ArgumentParser, BooleanOptionalAction, Namespace
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import Self
 
 from pvenv.__version__ import __version__
-
-if TYPE_CHECKING:
-    from typing_extensions import Self  # upgrade: py3.10: import from typing
 
 sys.tracebacklimit = 0
 
