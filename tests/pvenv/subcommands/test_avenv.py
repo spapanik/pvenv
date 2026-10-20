@@ -49,7 +49,7 @@ def test_run_with_project_and_environment(
     command = Command([tmp_path], dry_run=True, verbosity=0, venv="test", cd=True)
     with mock.patch.dict("os.environ", {}, clear=True):
         command.run()
-    assert mock_parser.call_args_list == [mock.call(["production.env"])]
+    assert mock_parser.call_args_list == [mock.call("production.env")]
     assert mock_execute.call_args_list == [
         mock.call("cd /home/user/project"),
         mock.call(f". {venv_path / SCRIPTS_DIR / 'activate'}"),

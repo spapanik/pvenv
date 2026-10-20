@@ -47,7 +47,7 @@ class Command(BaseCommand):
             if environment.exists():
                 with environment.open() as file:
                     for line in file:
-                        new_environment |= ConfigParser([line.strip()]).data
+                        new_environment |= ConfigParser(line.strip()).data
 
         self.execute(f". {venv_path.joinpath(SCRIPTS_DIR, 'activate')}")
         environment_string = " ".join(
