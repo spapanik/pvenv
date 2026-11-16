@@ -32,7 +32,7 @@ upon activation.
 [licence_url]: https://p-venv.readthedocs.io/en/stable/LICENSE/
 [codecov_badge]: https://codecov.io/github/spapanik/pvenv/graph/badge.svg?token=Q20F84BW72
 [codecov_url]: https://codecov.io/github/spapanik/pvenv
-[readthedocs_badge]: https://readthedocs.org/projects/p-venv/badge/?version=latest
+[readthedocs_badge]: https://app.readthedocs.org/projects/p-venv/badge/?version=latest
 [readthedocs_url]: https://p-venv.readthedocs.io/en/latest/
 [pypi_badge]: https://img.shields.io/pypi/v/pvenv
 [pypi_url]: https://pypi.org/project/pvenv
